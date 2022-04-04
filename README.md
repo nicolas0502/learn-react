@@ -14,6 +14,6 @@ Loja de HQs e Mangas feito com React e PHP na matéria de PJ3 no IFSP
 
 GitHub: [Nicolas Sousa](https://github.com/nicolas0502) <br>
 Facebook: Nicolas Sousa <br>
-Instragram: @nicolasmoraes34
+Instragram: @nicolasmoraes34<br>
 Email: nicolassmoraes2005@gmail.com
 
