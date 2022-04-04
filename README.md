@@ -12,7 +12,7 @@ Loja de HQs e Mangas feito com React
 
 ### Contato
 
-GitHub: [Nicolas Sousa](https://github.com/nicolas0502)
-Facebook: Nicolas Sousa
+GitHub: [Nicolas Sousa](https://github.com/nicolas0502) <br>
+Facebook: Nicolas Sousa <br>
 Email: nicolassmoraes2005@gmail.com
 
