@@ -1,9 +1,10 @@
-import './App.css';
+import './App.css'
+import HeaderCard from './components/HeaderCard'
 
 function App() {
   return (
-    <h1>Clean</h1>
-  );
+    <HeaderCard />
+  )
 }
 
 export default App;
