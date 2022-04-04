@@ -8,11 +8,12 @@ Nicolas Sousa de Moraes.
 
 ### Descrição
 
-Loja de HQs e Mangas feito com React
+Loja de HQs e Mangas feito com React e PHP na matéria de PJ3 no IFSP
 
 ### Contato
 
 GitHub: [Nicolas Sousa](https://github.com/nicolas0502) <br>
 Facebook: Nicolas Sousa <br>
+Instragram: @nicolasmoraes34
 Email: nicolassmoraes2005@gmail.com
 
