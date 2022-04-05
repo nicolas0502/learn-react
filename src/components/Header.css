@@ -1,4 +1,4 @@
-.header {
+.cabecalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,4 +6,9 @@
     background-color: #FF9090;
     text-align: center;
 
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
 }

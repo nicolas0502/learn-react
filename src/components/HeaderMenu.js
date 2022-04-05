@@ -5,7 +5,7 @@ import Login from "./Login"
 
 const HeaderMenu = () => {
     return (
-        <div className= "header">
+        <div className= "cabecalho">
             <Menu></Menu>
             <Logo></Logo>
             <Login></Login>
