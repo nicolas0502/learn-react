@@ -5,7 +5,7 @@ import Menu from './Menu'
 const Search = () => {
     return (
        <div className="search">
-            <Menu></Menu>.
+            <Menu></Menu>
             <Pesquisa></Pesquisa>
        </div> 
     )

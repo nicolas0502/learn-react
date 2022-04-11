@@ -1,8 +1,9 @@
 import "./Login.css"
+import login from "../assets/icons/login.svg"
 
 const Login = () => {
     return (
-        <div className= "login"></div>
+        <img src={login} className="login" />
     )
 }
 

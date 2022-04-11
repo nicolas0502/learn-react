@@ -1,8 +1,9 @@
 import "./Menu.css"
+import menu from "../assets/icons/menu.svg"
 
 const Menu = () => {
     return (
-        <div className= "menu"></div>
+        <img src={menu} className="menu" />
     )
 }
 

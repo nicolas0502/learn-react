@@ -5,23 +5,23 @@
 .lupa{
     width: 30px;
     height: 30px;
-    background-color: gray;
-    margin-left: 30px;
+    border: none;
+}
+
+.button{
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
 }
 
 .campo{
     margin: 0 30px 0 10px;
-    width: 230px;
+    width: 270px;
     height: 30px;
     background-color: white;
     text-align: center;
     border-radius:6px ;
-    
-}
-
-.campo h1{
-    font-weight: normal;
-    font-size: 1rem;
-    padding: 4px 0;
-    color: rgba(128, 128, 128, 0.555);
+    border: none;
+    padding: 0;
 }

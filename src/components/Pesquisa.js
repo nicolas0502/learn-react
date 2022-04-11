@@ -1,11 +1,12 @@
 import "./Pesquisa.css"
+import search from "../assets/icons/search.svg"
 
 const Pesquisa = () => {
     return (
-        <div className="pesquisa">
-            <div className="lupa"></div>
-            <div className="campo"><h1>Pesquisar...</h1></div>
-        </div>
+        <form className="pesquisa">
+            <button className="button"><img src={search} className="lupa" /></button>
+            <input type="text" className="campo" placeholder="Pesquisar Produto"></input>
+        </form>
     )
 }
 
