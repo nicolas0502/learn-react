@@ -1,15 +1,11 @@
 import './App.css'
-import HeaderCard from './components/HeaderCard'
-import Footer from './components/Footer';
+import PaginaInicial from "./pages/PaginaInicial"
 
 
 
 function App() {
   return (
-    <>
-    <HeaderCard />
-    <Footer />
-    </>
+    <PaginaInicial />
   )
 }
 
