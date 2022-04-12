@@ -3,7 +3,7 @@ import login from "../assets/icons/login.svg"
 
 const Login = () => {
     return (
-        <img src={login} className="login" />
+        <img src={login} alt="Login" className="login" />
     )
 }
 
