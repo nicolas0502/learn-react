@@ -1,9 +1,15 @@
 import "./Login.css"
-import login from "../assets/icons/login.svg"
+import Entrar from "../assets/icons/entrar.svg"
+import Cadastrar from "../assets/icons/cadastrar.svg"
+
 
 const Login = () => {
     return (
-        <img src={login} alt="Login" className="login" />
+        <div className="usuario">
+            <a href=""><img src={Entrar} alt="Botao Para Logar" className="entrar" /></a>
+            <h1 className="separador">/</h1>
+            <a href=""><img src={Cadastrar} alt="Botao Para Cadastro" className="cadastrar" /></a>
+        </div>
     )
 }
 

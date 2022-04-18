@@ -1,11 +1,11 @@
 import './App.css'
-import PaginaInicial from "./pages/PaginaInicial"
+import PaginaUsua from "./pages/PaginaUsua"
 
 
 
 function App() {
   return (
-    <PaginaInicial />
+    <PaginaUsua />
   )
 }
 

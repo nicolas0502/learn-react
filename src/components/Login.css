@@ -1,5 +1,21 @@
-.login{
+.usuario{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.entrar{
     height: 30px;
     width: 100px;
-    margin-right: 30px;
 }
+
+.cadastrar{
+    height: 30px;
+    width: 100px;
+}
+
+.separador{
+    padding: 0 0 12px 0 ;
+    font-weight: lighter;
+}
+

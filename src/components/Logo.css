@@ -1,5 +1,8 @@
 .logo{
     display: flex;
+    text-decoration: none;
+    color: black;
+    font-weight:300;
 }
 
 h1{
