@@ -1,7 +1,4 @@
-import './App.css'
 import PaginaUsua from "./pages/PaginaUsua"
-
-
 
 function App() {
   return (
