@@ -1,8 +1,9 @@
-import PaginaUsua from "./pages/PaginaUsua"
+import PaginaPerfilUsua from "./pages/PaginaPerfilUsua"
+import PaginaPerfilAdm from "./pages/PaginaPerfilAdm"
 
 function App() {
   return (
-    <PaginaUsua />
+    <PaginaPerfilAdm />
   )
 }
 

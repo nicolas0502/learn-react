@@ -1,8 +1,8 @@
-import "./InfoUsua.css"
+import "./PerfilUsua.css"
 import FotoUsua from "../assets/img/foto de usuario.svg"
 import Editar from "../assets/icons/editar.svg"
 
-const InfoUsua = () => {
+const PerfilUsua = () => {
     return (
         <div className="usua_card">
             <div className="info_usua">
@@ -13,10 +13,11 @@ const InfoUsua = () => {
                     <h1>XXX.XXX.XXX-XX</h1>
                     <h1>(XX)XXXXX-XXXX</h1>
                 </div>
-                <img src={Editar} alt="Botão para editar o usuario" className="editar" />
-            </div> 
+                <a href="www.google.com"><img src={Editar} alt="Botão para editar o usuario" className="editar" /></a>
+            </div>
+            <a href="www.google.com" className="buttonusua">Ir para o carrinho</a>
         </div>    
     )
 }
 
-export default InfoUsua
+export default PerfilUsua

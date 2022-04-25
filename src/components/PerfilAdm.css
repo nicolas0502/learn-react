@@ -1,0 +1,65 @@
+.adm_card{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.info_adm{
+    display: flex;
+    height: 400px;
+    width: 1100px;
+    background-color: #673636;
+    border-radius: 7px;
+    align-items: center;
+}
+
+
+.editar{
+    width: 50px;
+    height: 50px;
+    margin-top: 320px;
+    padding-left: 280px;
+}
+
+.foto_adm{
+    width: 300px;
+    height: 300px;
+    padding: 0 10px 0 70px;
+}
+
+.informacoes{
+    color: white;
+}
+
+.informacoes h1{
+    margin: 30px 0;
+}
+
+.produ_adc{
+    width: 100%;
+    height: 700px;
+    color: white;
+    background-color: #673636;
+    text-align: center;
+}
+
+.produ_adc h1{
+    padding-top:30px ;
+    margin-bottom: 550px;
+}
+
+.buttonproduct{
+    text-decoration: none;
+    color: white;
+    padding: 20px 100px;
+    background-color: #771919;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 20px;
+}    
+
+

@@ -1,7 +1,7 @@
 import HeaderMenu from '../components/HeaderMenu'
 import HeaderCard from '../components/HeaderCard'
 import Footer from '../components/Footer'
-import InfoUsua from '../components/InfoUsua'
+import PerfilUsua from '../components/PerfilUsua'
 
 
 
@@ -10,7 +10,7 @@ function PaginaUsua() {
   return (
     <>
     <HeaderMenu />
-    <InfoUsua />
+    <PerfilUsua />
     <Footer />
     </>
   )
