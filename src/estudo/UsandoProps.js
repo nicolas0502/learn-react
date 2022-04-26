@@ -23,7 +23,7 @@ const UsandoProps = () => {
             {users && 
                 users.map(
                     (user) => {
-                        return <CardUser {...user} />
+                        return <CardUser key={user.id} {...user} />
                     }
                 )
             }

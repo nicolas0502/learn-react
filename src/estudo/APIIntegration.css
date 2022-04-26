@@ -1,0 +1,32 @@
+.api{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: #FFF;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.request{
+    display: flex;
+}
+
+.api h1{
+    font-size: 24px;
+    padding: 5px 0;
+}
+
+.descri{
+    font-size: 20px;
+    margin: 190px 0 2px 0;
+}
+
+.preco{
+    font-size: 19px;
+    margin: 2px 0;
+}
