@@ -38,13 +38,14 @@ const APIIntegration = () => {
         {hqs && 
             hqs.map((hq) => {
                 return (
-                    
-                        <div key={hq.id} className="api">
-                            <h1>{hq.nome}</h1>
-                            <p className="descri">{hq.descricao}</p>
-                            <p className="preco">{hq.valor}</p>
-                            <IconTrash onClick={() => handleTrashClick(hq.id)}/>
-                        </div>
+                  <div key={hq.id} className="api">
+                    <h1>{hq.nome}</h1>
+                    <p className="descri">{hq.descricao}</p>
+                    <div className="exemplo">
+                      <p className="preco">{hq.valor}</p>
+                      <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
+                    </div>
+                  </div>
                     
                 )
             })

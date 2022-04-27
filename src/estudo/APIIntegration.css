@@ -17,16 +17,26 @@
 }
 
 .api h1{
-    font-size: 24px;
+    font-size: 23px;
     padding: 5px 0;
 }
 
 .descri{
     font-size: 20px;
-    margin: 190px 0 2px 0;
+    margin: 170px 0 2px 0;
 }
 
 .preco{
     font-size: 19px;
-    margin: 2px 0;
+    margin: 0;
+}
+
+.icontrash{
+    color:white;
+    margin: 2px 0 0 20px;
+}
+
+.exemplo{
+    display: flex;
+    margin: 3px 0;
 }
