@@ -1,0 +1,27 @@
+.card_pergunta{
+    background-color: #F0F0F0;
+    width: 1200px;
+    height: 400px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resposta{
+    display: flex;
+}
+
+.respostas{
+    display: flex;
+}
+
+.op_usua a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.op_vend a{
+    text-decoration: none;
+    color: #FFF;
+}

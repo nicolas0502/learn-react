@@ -7,7 +7,6 @@ const Login = () => {
     return (
         <div className="usuario">
             <a href=""><img src={Entrar} alt="Botao Para Logar" className="entrar" /></a>
-            <h1 className="separador">/</h1>
             <a href=""><img src={Cadastrar} alt="Botao Para Cadastro" className="cadastrar" /></a>
         </div>
     )

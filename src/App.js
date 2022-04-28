@@ -1,11 +1,11 @@
-// import PaginaPerfilUsua from "./pages/PaginaPerfilUsua"
-// import PaginaPerfilAdm from "./pages/PaginaPerfilAdm"
-import APIIntegration from "./estudo/APIIntegration";
+import PaginaPerfilUsua from "./pages/PaginaPerfilUsua"
+import PaginaPerfilAdm from "./pages/PaginaPerfilAdm"
+import PaginaPerguntaDeLogin from "./pages/PaginaPerguntaDeLogin"
+
 
 function App() {
   return (
-    // <PaginaPerfilAdm />
-    <APIIntegration/>
+    <PaginaPerguntaDeLogin />
   )
 }
 
