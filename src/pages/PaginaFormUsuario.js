@@ -1,18 +1,15 @@
 import HeaderMenu from '../components/HeaderMenu'
 import Footer from '../components/Footer'
-import PerfilUsua from '../components/PerfilUsua'
+import FormUsuario from '../components/FormUsuario'
 
-
-
-
-function PaginaUsua() {
+function PaginaAdm() {
   return (
     <>
     <HeaderMenu />
-    <PerfilUsua />
+    <FormUsuario />
     <Footer />
     </>
   )
 }
 
-export default PaginaUsua
+export default PaginaAdm

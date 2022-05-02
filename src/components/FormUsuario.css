@@ -1,4 +1,4 @@
-.form_vendedor{
+.form_usuario{
     display: flex;
     flex-direction: column;
     background-color: #F0F0F0;
@@ -9,24 +9,24 @@
     border-radius: 15px;
 }
 
-.vendedor_form{
+.usuario_form{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form_vendedor h1{
+.form_usuario h1{
     font-weight:700;
     text-align: center;
     margin: 15px 0;
     padding: 0;
 }
 
-.form_vendedor label{
+.form_usuario label{
    margin-left: 49px;
 }
 
-.form_vendedor input{
+.form_usuario input{
     width:  400px;
     padding: 7px 7px;
     border-radius: 5px;
@@ -46,4 +46,48 @@
     font-weight: bolder;
     font-size: 19px;
     width: 140px !important; 
+}
+
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.facebook img{
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+}
+
+.google img{
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+}
+
+.instagram img{
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+}
+
+.facebook h3{
+    cursor: pointer;
+    margin: 0 0 20px 0;
+    font-weight: 500;
+}
+
+.google h3{
+    cursor: pointer;
+    margin: 0 0 20px 0;
+    padding-left:8px ;
+    font-weight: 500;
+}
+
+.instagram h3{
+    cursor: pointer;
+    margin: 0 0 20px 0;
+    font-size: 17px;
+    font-weight: 500;
 }

@@ -1,13 +1,12 @@
-import PaginaPerfilUsua from "./pages/PaginaPerfilUsua"
-import PaginaPerfilAdm from "./pages/PaginaPerfilAdm"
-import PaginaPerguntaDeLogin from "./pages/PaginaPerguntaDeLogin"
-import PaginaFormVendedor from "./pages/PaginaFormVendedor";
+import Router from "./Router";
+import { BrowserRouter } from "react-router-dom";
 
 
 function App() {
   return (
-    // <PaginaPerfilAdm />
-    <PaginaFormVendedor />
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
 

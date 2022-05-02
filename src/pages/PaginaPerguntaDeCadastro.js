@@ -1,8 +1,8 @@
 import HeaderMenu from '../components/HeaderMenu'
 import Footer from '../components/Footer'
-import PerguntaDeLogin from '../components/PerguntaDeLogin'
+import PerguntaDeLogin from '../components/PerguntaDeCadastro'
 
-function PaginaPerguntaDeLogin() {
+function PaginaPerguntaDeCadastro() {
     return (
       <>
       <HeaderMenu />
@@ -12,4 +12,4 @@ function PaginaPerguntaDeLogin() {
     )
   }
   
-  export default PaginaPerguntaDeLogin
+  export default PaginaPerguntaDeCadastro
