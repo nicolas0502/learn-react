@@ -2,7 +2,7 @@ import HeaderMenu from '../components/HeaderMenu'
 import Footer from '../components/Footer'
 import FormUsuario from '../components/FormUsuario'
 
-function PaginaAdm() {
+function PaginaFormUsuario() {
   return (
     <>
     <HeaderMenu />
@@ -12,4 +12,4 @@ function PaginaAdm() {
   )
 }
 
-export default PaginaAdm
+export default PaginaFormUsuario

@@ -1,9 +1,8 @@
 import { useEffect,useState } from "react"
-import "./APIIntegration.css"
-import FormHqs from "./FormHqs"
+import "./CardHq.css"
 import {BsTrash as IconTrash} from "react-icons/bs"
 
-const APIIntegration = () => {
+const EditarHq = () => {
 
     const [hqs, setHqs] = useState(null)
 
@@ -33,7 +32,6 @@ const APIIntegration = () => {
     }
     return (
         <>
-        <FormHqs setHqs={setHqs} hqs={hqs}/>
         <div className="request">
         {hqs && 
             hqs.map((hq) => {
@@ -55,4 +53,4 @@ const APIIntegration = () => {
     )
 }
 
-export default APIIntegration
+export default EditarHq

@@ -1,8 +1,13 @@
 import "./PerfilAdm.css"
 import FotoUsua from "../assets/img/foto de usuario.svg"
 import Editar from "../assets/icons/editar.svg"
+import CardHq from "./CardHq"
+import { useNavigate } from 'react-router-dom'
+
 
 const PerfilAdm = () => {
+    let navigate = useNavigate();
+
     return (
         <>
         <div className="adm_card">
@@ -19,7 +24,8 @@ const PerfilAdm = () => {
         </div>    
         <div className="produ_adc">
             <h1>Produtos Adicionados</h1>
-            <a href="www.google.com" className="buttonproduct">Adicionar o Produto</a>
+            <CardHq />
+            <button className="buttonproduct" onClick={ () => {navigate("/cadastra-hq")}}>Adicionar o Produto</button> 
         </div>
     </>
     )

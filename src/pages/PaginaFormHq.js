@@ -1,15 +1,15 @@
 import HeaderMenu from '../components/HeaderMenu'
 import Footer from '../components/Footer'
-import FormVendedor from '../components/FormVendedor'
+import FormHqs from '../components/FormHqs'
 
-function PaginaFormVendedor() {
+function PaginaAdm() {
   return (
     <>
     <HeaderMenu />
-    <FormVendedor />
+    <FormHqs />
     <Footer />
     </>
   )
 }
 
-export default PaginaFormVendedor
+export default PaginaAdm
