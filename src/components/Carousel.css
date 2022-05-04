@@ -2,6 +2,6 @@
     width: 100%;
 }
 
-.carousel{
-    z-index: -1;
+.carousel-control-prev-icon {
+    background-image: none;
 }
