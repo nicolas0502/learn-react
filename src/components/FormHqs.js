@@ -1,4 +1,5 @@
 import React from "react";
+import "./FormHqs.css"
 
 const FormHqs = ({hqs, setHqs}) => {
 
@@ -22,12 +23,14 @@ const FormHqs = ({hqs, setHqs}) => {
     } 
 
     return(
-        <form onSubmit={(event) => handleSubmit(event)}>
+        <form onSubmit={(event) => handleSubmit(event)} className="form-hq">
+          <div className="divisoria">  
+            <label>Imagem: </label> <input type="" name="imagem" />  <br/>
             <label>Nome: </label> <input type="text" name="nome" /> <br/>
             <label>Valor: </label> <input type="number" name="valor" /> <br/>
+          </div>
             <label>Quantidade: </label> <input type="number" name="quantidade" /><br/>
             <label>Descrição: </label> <input type="text" name="descricao" /><br/>
-            <label>Imagem: </label> <input type="text" name="imagem" />  <br/>
             <input type="submit" value="Cadastrar" />
         </form>
     )

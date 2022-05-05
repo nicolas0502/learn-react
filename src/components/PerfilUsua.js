@@ -1,8 +1,12 @@
 import "./PerfilUsua.css"
 import FotoUsua from "../assets/img/foto de usuario.svg"
-import Editar from "../assets/icons/editar.svg"
+import { useNavigate } from 'react-router-dom'
+import {MdModeEditOutline as EditUsua} from 'react-icons/md'
 
 const PerfilUsua = () => {
+
+    let navigate = useNavigate();
+
     return (
         <div className="usua_card">
             <div className="info_usua">
@@ -13,9 +17,11 @@ const PerfilUsua = () => {
                     <h1>XXX.XXX.XXX-XX</h1>
                     <h1>(XX)XXXXX-XXXX</h1>
                 </div>
-                <a href="www.google.com"><img src={Editar} alt="Botão para editar o usuario" className="editar" /></a>
+                <div className="editusua1">
+                    <EditUsua className="editusua" />
+                </div>
             </div>
-            <a href="www.google.com" className="buttonusua">Ir para o carrinho</a>
+            <button className="buttonusua" onClick={() => {navigate('/carrinho')}}>Ir para o carrinho</button>
         </div>    
     )
 }

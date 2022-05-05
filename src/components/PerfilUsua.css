@@ -17,12 +17,22 @@
     align-items: center;
 }
 
+.editusua{
+    width: 40px;
+    height: 40px;
+    color: white;
+}
 
-.editar{
-    width: 50px;
-    height: 50px;
-    margin-top: 320px;
-    padding-left: 280px;
+.editusua1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-top: 290px;
+    margin-left: 220px;
+    background-color: gray;
 }
 
 .foto_usua{
@@ -37,6 +47,7 @@
 
 .informacoes h1{
     margin: 30px 0;
+    color: black;
 }
 
 .buttonusua{
@@ -47,4 +58,5 @@
     border-radius: 10px;
     text-decoration: none;
     font-size: 20px;
+    border: none;
 }

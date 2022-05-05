@@ -1,4 +1,3 @@
-import "./Carousel.css"
 import { useState } from "react"
 import { Carousel } from "react-bootstrap"
 import Imagem1 from '../assets/img/imagem 1.png'
@@ -21,8 +20,8 @@ function ControlledCarousel() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Library HQs</h3>
+            <p>Os melhores quadrinhos e managas da América do Sul.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -33,8 +32,8 @@ function ControlledCarousel() {
           />
   
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Incriveis Promoções</h3>
+            <p>Promoções imperdiveis em toda loja a todo tempo.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -45,10 +44,8 @@ function ControlledCarousel() {
           />
   
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>Hqs de Todo Tipo</h3>
+            <p>Não importa o hq que você procure nós teremos.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

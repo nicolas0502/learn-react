@@ -4,16 +4,20 @@
     align-items: center;
     background-color: black;
     color: #FFF;
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
     margin-bottom: 30px;
-    width: 31.5%;
-    height: auto;
+    width: 20%;
+    height: 300px;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .request{
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding:0 80px 0 100px;
 }
 
 .api h1{
@@ -31,9 +35,37 @@
     margin: 0;
 }
 
+.trash1{
+    background-color: red;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:5px ;
+}
+
 .icontrash{
-    color:white;
-    margin: 2px 0 0 20px;
+    color:black;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.edit1{
+    background-color: #C4C4C4;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:5px ;
+}
+
+.edithq{
+    color: black;
+    width: 20px;
+    height: 20px;
 }
 
 .exemplo{

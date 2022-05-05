@@ -1,8 +1,8 @@
 import "./PerfilAdm.css"
 import FotoUsua from "../assets/img/foto de usuario.svg"
-import Editar from "../assets/icons/editar.svg"
 import CardHq from "./CardHq"
 import { useNavigate } from 'react-router-dom'
+import {MdModeEditOutline as EditAdm} from 'react-icons/md'
 
 
 const PerfilAdm = () => {
@@ -19,12 +19,17 @@ const PerfilAdm = () => {
                     <h1>XXX.XXX.XXX-XX</h1>
                     <h1>(XX)XXXXX-XXXX</h1>
                 </div>
-                <a href="www.google.com"><img src={Editar} alt="Botão para editar o usuario" className="editar" /></a>
+                <div className="editadm1">
+                    <EditAdm className="editadm" />
+                </div>
+                
             </div>
         </div>    
         <div className="produ_adc">
             <h1>Produtos Adicionados</h1>
-            <CardHq />
+            <div className="cardzin">
+                <CardHq />
+            </div>
             <button className="buttonproduct" onClick={ () => {navigate("/cadastra-hq")}}>Adicionar o Produto</button> 
         </div>
     </>

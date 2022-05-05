@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react"
 import "./CardHq.css"
 import {BsTrash as IconTrash} from "react-icons/bs"
+import {MdModeEditOutline as EditHq} from 'react-icons/md'
 
 const EditarHq = () => {
 
@@ -38,10 +39,14 @@ const EditarHq = () => {
                 return (
                   <div key={hq.id} className="api">
                     <h1>{hq.nome}</h1>
-                    <p className="descri">{hq.descricao}</p>
                     <div className="exemplo">
-                      <p className="preco">{hq.valor}</p>
-                      <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
+                      <p className="preco">R$ {hq.valor}</p>
+                      <div className="trash1">
+                        <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
+                      </div>
+                      <div className="edit1">
+                        <EditHq className="edithq"/>
+                      </div>
                     </div>
                   </div>
                     
