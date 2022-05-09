@@ -2,15 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
-    color: #FFF;
+    background-color: #FFF;
+    color: #000;
     margin-left: 30px;
     margin-right: 20px;
     margin-bottom: 30px;
+    padding: 0 2px;
     width: 20%;
     height: 300px;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #000;
 }
 
 .request{
@@ -20,14 +22,20 @@
     padding:0 80px 0 100px;
 }
 
-.api h1{
-    font-size: 23px;
-    padding: 5px 0;
+.imgg{
+    margin-top: 20px ;
+    margin-bottom: 10px;
+    background-color: aqua;
+    border-radius: 10px;
+    border: 1px solid rgba(90, 90, 90, 0.527);
+    width: 180px;
+    height: 175px;
 }
 
-.descri{
-    font-size: 20px;
-    margin: 170px 0 2px 0;
+.api h1{
+    font-size: 23px;
+    margin: 0;
+    padding: 0;
 }
 
 .preco{
@@ -66,9 +74,13 @@
     color: black;
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
-.exemplo{
+.icons{
     display: flex;
     margin: 3px 0;
+    width: 130px;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }

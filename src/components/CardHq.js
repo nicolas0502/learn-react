@@ -1,11 +1,13 @@
 import { useEffect,useState } from "react"
 import "./CardHq.css"
+import { useNavigate } from 'react-router-dom'
 import {BsTrash as IconTrash} from "react-icons/bs"
 import {MdModeEditOutline as EditHq} from 'react-icons/md'
 
 const EditarHq = () => {
 
     const [hqs, setHqs] = useState(null)
+    const navigate = useNavigate();
 
     useEffect(() =>{
         fetch("http://localhost/LP2/api/hq/select-all")
@@ -38,14 +40,15 @@ const EditarHq = () => {
             hqs.map((hq) => {
                 return (
                   <div key={hq.id} className="api">
+                    <p className="imgg">{hq.imagem}</p>
                     <h1>{hq.nome}</h1>
-                    <div className="exemplo">
-                      <p className="preco">R$ {hq.valor}</p>
+                    <p className="preco">R$ {hq.valor}</p>
+                    <div className="icons">
                       <div className="trash1">
                         <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
                       </div>
                       <div className="edit1">
-                        <EditHq className="edithq"/>
+                        <EditHq className="edithq" onClick={() => navigate('edit/'+hq.id)} />
                       </div>
                     </div>
                   </div>

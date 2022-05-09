@@ -1,4 +1,4 @@
-.form_hq{
+.edit_hq{
     display: flex;
     flex-direction: column;
     background-color: #F0F0F0;
@@ -9,24 +9,24 @@
     border-radius: 15px;
 }
 
-.hq_form{
+.hq_edit{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form_hq h1{
+.edit_hq h1{
     font-weight:700;
     text-align: center;
     margin: 15px 0;
     padding: 0;
 }
 
-.form_hq label{
+.edit_hq label{
    margin-left: 49px;
 }
 
-.form_hq input{
+.edit_hq input{
     width:  400px;
     padding: 7px 7px;
     border-radius: 5px;
@@ -40,7 +40,7 @@ input[name="imagem"]{
     background-color: #FFF;
 }
 
-.botao_cadastro{
+.botao_edit{
     background-color: #EB2525;
     color: white;
     border: none;

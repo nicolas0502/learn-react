@@ -1,7 +1,10 @@
 import React from "react";
+import {useNavigate } from 'react-router-dom'
 import "./FormHqs.css"
 
 const FormHqs = ({hqs, setHqs}) => {
+
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
       event.preventDefault()
@@ -19,20 +22,27 @@ const FormHqs = ({hqs, setHqs}) => {
         .then((data) => {
           alert(data.message)
           setHqs([ data.hq , ...hqs])
+          console.log(data)
+          if(data?.message){
+            navigate('../');
+          } else {
+            console.log(data)
+          }
         });
     } 
 
     return(
-        <form onSubmit={(event) => handleSubmit(event)} className="form-hq">
-          <div className="divisoria">  
-            <label>Imagem: </label> <input type="" name="imagem" />  <br/>
+      <div className="hq_form">
+        <form onSubmit={(event) => handleSubmit(event)} className="form_hq">
+            <h1>Cadastro de Produto</h1>
             <label>Nome: </label> <input type="text" name="nome" /> <br/>
             <label>Valor: </label> <input type="number" name="valor" /> <br/>
-          </div>
             <label>Quantidade: </label> <input type="number" name="quantidade" /><br/>
             <label>Descrição: </label> <input type="text" name="descricao" /><br/>
-            <input type="submit" value="Cadastrar" />
+            <label>Imagem: </label> <input type="text" name="imagem" />  <br/>
+            <input type="submit" value="Cadastrar" className="botao_cadastro"/>
         </form>
+      </div>
     )
 }
 

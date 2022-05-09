@@ -30,7 +30,7 @@ const PerfilAdm = () => {
             <div className="cardzin">
                 <CardHq />
             </div>
-            <button className="buttonproduct" onClick={ () => {navigate("/cadastra-hq")}}>Adicionar o Produto</button> 
+            <button className="buttonproduct" onClick={ () => {navigate("cadastra-hq")}}>Adicionar o Produto</button> 
         </div>
     </>
     )
