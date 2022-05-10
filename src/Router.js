@@ -8,6 +8,8 @@ import PaginaPerguntaDeCadastro from "./pages/PaginaPerguntaDeCadastro";
 import PaginaInicial from "./pages/PaginaInicial";
 import PaginaFormHq from "./pages/PaginaFormHq";
 import PaginaEditarHq from "./pages/PaginaEditarHq";
+import PaginaLoginVendedor from "./pages/PaginaLoginVendedor";
+import PaginaLoginUsuario from "./pages/PaginaLoginUsuario";
 
 const Router = () => {
   return (
@@ -23,6 +25,9 @@ const Router = () => {
       <Route path="perfil-usuario" element={<PaginaPerfilUsua/>}/>
       <Route path="cadastra-usuario" element={<PaginaFormUsuario/>}/>
       <Route path="cadastro-usuario-ou-vendedor" element={<PaginaPerguntaDeCadastro />}/>
+      <Route path="login-vendedor" element={<PaginaLoginVendedor />}/>
+      <Route path="login-usuario" element={<PaginaLoginUsuario />}/>
+
     </Routes>
   )
 }

@@ -32,7 +32,7 @@ const FormUsuario = ({clientes, setClientes}) => {
         <div className="usuario_form">
             <form onSubmit={(event) => handleSubmit(event)} className="form_usuario">
                 <h1>Cadastrar cliente</h1>
-                <div className="icons">
+                <div className="iconss">
                     <div className="facebook">
                         <img src={Facebook} alt="icone do facebook" />
                         <h3>Facebook</h3>

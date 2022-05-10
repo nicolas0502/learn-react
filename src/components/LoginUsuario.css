@@ -1,0 +1,17 @@
+.login_usua{
+    width: 100%;
+    display: flex;
+    height: 600px;
+}
+
+.left_usua{
+   width: 50%;
+   background-color: black; 
+   height: 600px;
+}
+
+.right_usua{
+    width: 50%;
+    background-color: gray;
+    height: 600px;
+}

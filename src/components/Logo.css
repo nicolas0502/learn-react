@@ -5,6 +5,10 @@
     font-weight:300;
 }
 
+.logo:hover{
+    color: black;
+}
+
 h1{
     padding-left: 14px;
     font-weight:400;

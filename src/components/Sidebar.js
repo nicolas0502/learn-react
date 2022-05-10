@@ -1,12 +1,12 @@
 import React from 'react'
 import { Container, Content } from './StylesSidebar'
+import { Link } from 'react-router-dom'
 import { 
   FaTimes, 
   FaHome,  
   FaUserAlt,  
   FaShoppingCart
 } from 'react-icons/fa'
-
 import SidebarItem from './SidebarItem'
 
 const Sidebar = ({ active }) => {
@@ -18,9 +18,9 @@ const Sidebar = ({ active }) => {
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />  
       <Content>
-        <SidebarItem Icon={FaHome} Text="Incio" />
-        <SidebarItem Icon={FaShoppingCart} Text="Carrinho" />
-        <SidebarItem Icon={FaUserAlt} Text="Perfil" />
+        <Link to="/" className='nav-link'><SidebarItem Icon={FaHome} Text="Incio"/></Link>
+        <Link to="/carrinho" className='nav-link'><SidebarItem Icon={FaShoppingCart} Text="Carrinho" /></Link>
+        <Link to="/perfil-vendedor" className='nav-link'><SidebarItem Icon={FaUserAlt} Text="Perfil" /></Link>
       </Content>
     </Container>
   )
