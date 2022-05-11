@@ -1,13 +1,13 @@
 import "./PerfilAdm.css"
 import FotoUsua from "../assets/img/foto de usuario.svg"
-import CardHq from "./CardHq"
+import CardHq from "./CardHqAdm"
 import { useNavigate } from 'react-router-dom'
 import {MdModeEditOutline as EditAdm} from 'react-icons/md'
 
 
 const PerfilAdm = () => {
     let navigate = useNavigate();
-
+    
     return (
         <>
         <div className="adm_card">
@@ -25,7 +25,7 @@ const PerfilAdm = () => {
                 
             </div>
         </div>    
-        <div className="produ_adc">
+        <div className="produ_adc" id="produ_adc">
             <h1>Produtos Adicionados</h1>
             <div className="cardzin">
                 <CardHq />

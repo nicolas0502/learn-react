@@ -40,15 +40,19 @@ const EditarHq = () => {
             hqs.map((hq) => {
                 return (
                   <div key={hq.id} className="api">
-                    <p className="imgg">{hq.imagem}</p>
-                    <h1>{hq.nome}</h1>
-                    <p className="preco">R$ {hq.valor}</p>
-                    <div className="icons">
-                      <div className="trash1">
-                        <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
-                      </div>
-                      <div className="edit1">
-                        <EditHq className="edithq" onClick={() => navigate('edit/'+hq.id)} />
+                    <div>
+                      <p className="imgg">{hq.imagem}</p>
+                    </div>
+                    <div className="card-tittle">
+                      <h1>{hq.nome}</h1>
+                      <p className="preco">R$ {hq.valor}</p>
+                      <div className="icons">
+                        <div className="trash1">
+                          <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
+                        </div>
+                        <div className="edit1">
+                          <EditHq className="edithq" onClick={() => navigate('edit/'+hq.id)} />
+                        </div>
                       </div>
                     </div>
                   </div>

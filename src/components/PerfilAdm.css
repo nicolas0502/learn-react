@@ -52,10 +52,15 @@
 
 .produ_adc{
     width: 100%;
-    height: auto;
+    min-height: 500px;
+    max-height: auto;
     color: black;
     background-color: #F0F0F0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .produ_adc h1{
@@ -66,7 +71,9 @@
 }
 
 .buttonproduct{
+    align-items: flex-end;
     text-decoration: none;
+    width: 400px;
     color: white;
     padding: 20px 100px;
     background-color: #EB2525;
