@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import "./CardHq.css"
+import { useNavigate } from 'react-router-dom'
 
 const CardHqUsua = () => {
  
     const [hqs, setHqs] = useState(null)
+    const navigate = useNavigate();
 
     useEffect(() =>{
         fetch("http://localhost/LP2/api/hq/select-all")
         .then((response) => response.json())
         .then((data) => setHqs(data))
     
-    }, [])
+    }, [])    
 
     return (
         <>
@@ -18,7 +20,7 @@ const CardHqUsua = () => {
         {hqs && 
             hqs.map((hq) => {
                 return (
-                  <div key={hq.id} className="api">
+                  <div key={hq.id} className="api" onClick={() => navigate('produto/'+hq.id)}>
                     <div>
                       <p className="imggg">{hq.imagem}</p>
                     </div>
