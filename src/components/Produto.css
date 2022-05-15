@@ -1,0 +1,24 @@
+.produto{
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info{
+    display: flex;
+}
+
+.produ_imagem{
+    background-color: brown;
+    height: 400px;
+    width: 350px;
+    margin-left: 90px;
+}
+
+.parcela{
+    max-width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
