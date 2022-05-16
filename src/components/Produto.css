@@ -9,16 +9,70 @@
     display: flex;
 }
 
+.info_produ{
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+}
+
 .produ_imagem{
     background-color: brown;
     height: 400px;
     width: 350px;
-    margin-left: 90px;
+    margin-left: 100px;
+    border-radius: 10px;
 }
 
-.parcela{
-    max-width: 25ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.butoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buton1{
+    text-decoration: none;
+    width: 280px;
+    color: white;
+    padding: 15px 0;
+    background-color: #EB2525;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+} 
+
+.buton2{
+    text-decoration: none;
+    width: 280px;
+    color: white;
+    padding: 15px 0;
+    background-color: #fa8080;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+}  
+
+.produ_valor{
+    padding-left: 14px;
+}
+
+.produ_parcela{
+    padding-left: 14px; 
+}
+
+.produ_quantidade{
+    padding-left: 14px;
+}
+
+.quantidade_produ{
+    padding-left: 14px;
+}
+
+.quantidade_de_produto input{
+    width:  150px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #757575;
+}

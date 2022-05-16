@@ -13,8 +13,6 @@ const Produto = () => {
                 console.log(data)});
     }, [hqId]);
 
-    const calculo = hq.valor / 10
-
   return (
     <>
         {hq ? (
@@ -23,16 +21,23 @@ const Produto = () => {
                     <div className='produ_imagem'>{hq.imagem}</div>
                     <div className='info_produ'>
                         <h1 className='produ_nome'>{hq.nome}</h1>
-                        <div className='produ_valor'>{hq.valor}</div>
-                        <div className='produ_parcela'>Em 12x de R${calculo} sem juros</div>
-                        <div className='produ_quantidade'>Estoque disponivel de {hq.quantidade} unidades</div>
-                        <button> Comprar Agora </button>
-                        <button> Adicionar ao Carrinho </button>
+                        <div className='valor_parcela'> 
+                            <div className='produ_valor'>R$ {hq.valor}</div>
+                            <div className='produ_parcela'>Em 10x de R${((hq.valor / 10).toString().replace(".", ","))} sem juros</div>
+                        </div>
+                        <div className='quantidade_de_produto'>
+                            <div className='produ_quantidade'>Estoque disponivel de {hq.quantidade} unidades</div>
+                            <div className='quantidade_produ'><label>Quantidade da compra:</label> <input type="number" min="1" max={hq.quantidade} defaultValue="1" name='quantidade'/></div>
+                        </div>
+                        <div className='butoes'>
+                            <button className='buton1'> Comprar Agora </button>
+                            <button className='buton2'> Adicionar ao Carrinho </button>
+                        </div>
                     </div>
                 </div>
                 <div>
                     <h3>Descrição</h3>
-                    <div className='produ_descricao'>{hq.descricao}</div>
+                    <div className='produ_descricao'><p>{hq.descricao}</p></div>
                 </div>
             </div>
             )
