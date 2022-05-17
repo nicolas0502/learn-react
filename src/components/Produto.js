@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import "./Produto.css"
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+
 
 const Produto = () => {
     const { hqId } = useParams();
@@ -18,6 +20,7 @@ const Produto = () => {
     <>
         {hq ? (
             <div className="produto">
+                <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left"/>
                 <div className='info'>
                     <div className='produ_imagem'>{hq.imagem}</div>
                     <div className='info_produ'>

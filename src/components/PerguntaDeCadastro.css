@@ -54,3 +54,9 @@
     padding: 10px 20px;
     border-radius: 8px;
 }
+
+.arrow_left2{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}

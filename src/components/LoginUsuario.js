@@ -23,8 +23,8 @@ const LoginUsuario = () => {
                     </div>
             </div>
             <form className="form_login_usua">
-              <label for="email">Email:</label><input type="email" name="nome"/>
-              <label for="senha">Senha:</label><input type="password" name="sobrenome"/>
+              <label for="email">Email:</label><input type="email" name="email"/>
+              <label for="senha">Senha:</label><input type="password" name="senha"/>
               <input type="submit" value="Entrar" className="botao_cadastro"/>
             </form>
         </div>

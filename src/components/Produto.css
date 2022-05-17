@@ -90,6 +90,29 @@
 }
 
 .descricao{
-    margin-top: 60px;
+    margin-top: 45px;
     margin-left: 100px;
+}
+
+.produ_descricao{
+    background-color: #fafafa;
+    height: 350px;
+    width: 1050px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.descricao h3{
+    font-size: 35px;
+}
+
+.produ_descricao p{
+    font-size: 20px;
+}
+
+.arrow_left{
+    width: 30px;
+    height: 30px;
+    position: relative;
 }
