@@ -18,7 +18,7 @@ const PerfilUsua = () => {
                     <h1>(XX)XXXXX-XXXX</h1>
                 </div>
                 <div className="editusua1">
-                    <EditUsua className="editusua" />
+                <EditUsua className="editusua" onClick={ () => {navigate("edit-usuario")}} />
                 </div>
             </div>
             <button className="buttonusua" onClick={() => {navigate('/carrinho')}}>Ir para o carrinho</button>

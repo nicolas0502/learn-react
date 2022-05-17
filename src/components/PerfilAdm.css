@@ -32,8 +32,9 @@
     height: 60px;
     border-radius: 10px;
     margin-top: 290px;
-    margin-left: 220px;
+    margin-left: 180px;
     background-color: gray;
+    cursor: pointer;
 }
 
 .foto_adm{

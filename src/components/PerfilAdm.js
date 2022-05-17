@@ -20,16 +20,14 @@ const PerfilAdm = () => {
                     <h1>(XX)XXXXX-XXXX</h1>
                 </div>
                 <div className="editadm1">
-                    <EditAdm className="editadm" />
+                    <EditAdm className="editadm" onClick={ () => {navigate("edit-admin")}} />
                 </div>
                 
             </div>
         </div>    
-        <div className="produ_adc" id="produ_adc">
+        <div className="produ_adc">
             <h1>Produtos Adicionados</h1>
-            <div className="cardzin">
-                <CardHq />
-            </div>
+            <CardHq />
             <button className="buttonproduct" onClick={ () => {navigate("cadastra-hq")}}>Adicionar o Produto</button> 
         </div>
     </>

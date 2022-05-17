@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import "./Produto.css"
 
 const Produto = () => {
     const { hqId } = useParams();
     const [hq, setHq] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -30,13 +31,13 @@ const Produto = () => {
                             <div className='quantidade_produ'><label>Quantidade da compra:</label> <input type="number" min="1" max={hq.quantidade} defaultValue="1" name='quantidade'/></div>
                         </div>
                         <div className='butoes'>
-                            <button className='buton1'> Comprar Agora </button>
-                            <button className='buton2'> Adicionar ao Carrinho </button>
+                            <button className='buton1' onClick={() => {navigate("pagamento")}} > Comprar Agora </button>
+                            <button className='buton2' onClick={() => {navigate("pagamento")}}> Adicionar ao Carrinho </button>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h3>Descrição</h3>
+                <div className='descricao'>
+                    <h3>Descrição:</h3>
                     <div className='produ_descricao'><p>{hq.descricao}</p></div>
                 </div>
             </div>

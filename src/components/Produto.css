@@ -54,20 +54,32 @@
     border: none;
 }  
 
+.produ_nome{
+    padding: 0;
+    margin: 0;
+}
+
 .produ_valor{
     padding-left: 14px;
+    font-weight: 600;
+    font-size: 40px;
 }
 
 .produ_parcela{
     padding-left: 14px; 
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .produ_quantidade{
     padding-left: 14px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .quantidade_produ{
     padding-left: 14px;
+    font-size: 17px;
 }
 
 .quantidade_de_produto input{
@@ -75,4 +87,9 @@
     padding: 0 10px;
     border-radius: 5px;
     border: 1px solid #757575;
+}
+
+.descricao{
+    margin-top: 60px;
+    margin-left: 100px;
 }
