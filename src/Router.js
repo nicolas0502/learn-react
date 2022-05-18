@@ -11,6 +11,7 @@ import PaginaEditarHq from "./pages/PaginaEditarHq";
 import PaginaLoginVendedor from "./pages/PaginaLoginVendedor";
 import PaginaLoginUsuario from "./pages/PaginaLoginUsuario";
 import PaginaProduto from "./pages/PaginaProduto";
+import PaginaPagamento from "./pages/PaginaPagamento";
 
 const Router = () => {
 return (  
@@ -18,6 +19,7 @@ return (
       <Route path="/" element={<PaginaInicial/>} />
       <Route path="cadastra-vendedor" element={<PaginaFormVendedor/>}/>
       <Route path="produto/:hqId" element={<PaginaProduto/>}/>
+      <Route path="pagamento" element={<PaginaPagamento/>}/>
       <Route path="login-usuario-ou-vendedor" element={<PaginaPerguntaDeLogin/>}/>
       <Route path="perfil-vendedor">
         <Route index element={<PaginaPerfilAdm />}/>

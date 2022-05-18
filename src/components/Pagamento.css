@@ -1,0 +1,44 @@
+.pagamento_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.form_pagamento{
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    width: 600px;
+    height: 100%;
+}
+
+.form_pagamento h1{
+   margin-top: 20px;
+   margin-left: auto;
+   margin-right:auto ;
+   padding: 0;
+}
+
+.form_pagamento input{
+    margin-bottom: 15px;
+}
+
+.met_pag{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-left: 20px;
+}
+
+.PIX input{
+    margin-right: 5px;
+}
+
+.CARTAO input{
+    margin-right: 5px;
+}
+
+.BOLETO input{
+    margin-right: 5px;
+}

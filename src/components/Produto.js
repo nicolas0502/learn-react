@@ -4,6 +4,7 @@ import "./Produto.css"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 
+
 const Produto = () => {
     const { hqId } = useParams();
     const [hq, setHq] = useState();
@@ -34,8 +35,8 @@ const Produto = () => {
                             <div className='quantidade_produ'><label>Quantidade da compra:</label> <input type="number" min="1" max={hq.quantidade} defaultValue="1" name='quantidade'/></div>
                         </div>
                         <div className='butoes'>
-                            <button className='buton1' onClick={() => {navigate("pagamento")}} > Comprar Agora </button>
-                            <button className='buton2' onClick={() => {navigate("pagamento")}}> Adicionar ao Carrinho </button>
+                            <button className='buton1' onClick={() => {navigate("/pagamento")}} > Comprar Agora </button>
+                            <button className='buton2' onClick={() => {navigate("/pagamento")}}> Adicionar ao Carrinho </button>
                         </div>
                     </div>
                 </div>
