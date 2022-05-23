@@ -6,7 +6,8 @@ import {
   FaHome,  
   FaUserAlt,  
   FaShoppingCart,
-  FaStar
+  FaStar,
+  FaPowerOff
 } from 'react-icons/fa'
 import SidebarItem from './SidebarItem'
 
@@ -23,6 +24,7 @@ const Sidebar = ({ active }) => {
         <Link to="/carrinho" className='nav-link'><SidebarItem Icon={FaShoppingCart} Text="Carrinho" /></Link>
         <Link to="/favoritos" className='nav-link'><SidebarItem Icon={FaStar} Text="Favoritos" /></Link>
         <Link to="/perfil-vendedor" className='nav-link'><SidebarItem Icon={FaUserAlt} Text="Perfil" /></Link>
+        <SidebarItem Icon={FaPowerOff} Text="Sair" />
       </Content>
     </Container>
   )

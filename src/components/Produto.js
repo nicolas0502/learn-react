@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import "./Produto.css"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import { useCarrinho } from '../provider/CarrinhoProvider';
 
 
 
@@ -16,6 +17,15 @@ const Produto = () => {
             .then((data) => {setHq(data)
                 console.log(data)});
     }, [hqId]);
+
+    const {numItens, idItens, setNumItens, setIdItens} = useCarrinho()
+
+    function addCarrinho(id) {
+        setNumItens(numItens + 1)
+        console.log(numItens)
+        // const newArray = idItens.push(id)
+        setIdItens([...idItens, id])
+    }
 
   return (
     <>
@@ -36,7 +46,7 @@ const Produto = () => {
                         </div>
                         <div className='butoes'>
                             <button className='buton1' onClick={() => {navigate("/pagamento")}} > Comprar Agora </button>
-                            <button className='buton2' onClick={() => {navigate("/pagamento")}}> Adicionar ao Carrinho </button>
+                            <button className='buton2' onClick={addCarrinho(hq.id)}> Adicionar ao Carrinho </button>
                         </div>
                     </div>
                 </div>
