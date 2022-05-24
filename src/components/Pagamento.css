@@ -11,6 +11,9 @@
     background-color: #f0f0f0;
     width: 600px;
     height: 100%;
+    margin-bottom: 50px;
+    border: 1px solid rgba(88, 88, 88, 0.63);
+    border-radius: 0 0 5px 5px;
 }
 
 .form_pagamento h1{
@@ -20,15 +23,48 @@
    padding: 0;
 }
 
-.form_pagamento input{
+.form_pagamento input[type="text"]{
     margin-bottom: 15px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_pagamento input[type="email"]{
+    margin-bottom: 15px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_pagamento input[type="password"]{
+    margin-bottom: 15px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_pagamento input[type="number"]{
+    margin-bottom: 15px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pag{
+    margin-top: 10px;
+    margin-left: 45px;
+}
+
+.form_pagamento p{
+    margin-left: 45px;
 }
 
 .met_pag{
     display: flex;
     justify-content: space-between;
     width: 40%;
-    margin-left: 20px;
+    margin-left: 45px;
 }
 
 .PIX input{
@@ -41,4 +77,19 @@
 
 .BOLETO input{
     margin-right: 5px;
+}
+
+.botao_pagamento{
+    background-color: #EB2525;
+    color: white;
+    border: none;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 5px !important;
+    font-weight: 500;
+    font-size: 15px;
+    width: 200px !important;
+    height: 35px;
 }
