@@ -1,8 +1,20 @@
 import React from "react";
-import {useNavigate } from 'react-router-dom'
+import { useRef, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import "./FormHqs.css"
 
 const FormHqs = ({hqs, setHqs}) => {
+
+    const nomeRef = useRef();
+    const valorRef = useRef();
+    const quantidadeRef = useRef();
+    const descricaoRef = useRef();
+    const imagemRef = useRef();
+
+    useEffect(() => {
+      nomeRef.current.focus()
+    })
 
     const navigate = useNavigate();
 
@@ -20,26 +32,28 @@ const FormHqs = ({hqs, setHqs}) => {
         )
         .then((response) => response.json())
         .then((data) => {
+          nomeRef.current.value = ''
+          valorRef.current.value = ''
+          quantidadeRef.current.value = ''
+          descricaoRef.current.value = ''
+          imagemRef.current.value = ''
+          nomeRef.current.focus()
           alert(data.message)
           setHqs([ data.hq , ...hqs])
           console.log(data)
-          if(data?.message){
-            navigate('../');
-          } else {
-            console.log(data)
-          }
         });
     } 
 
     return(
       <div className="hq_form">
+        <ArrowLeft onClick={() => {navigate("../")}} className="arrow_left_produto"/>
         <form onSubmit={(event) => handleSubmit(event)} className="form_hq">
             <h1>Cadastro de Produto</h1>
-            <label>Nome: </label> <input type="text" name="nome" /> <br/>
-            <label>Valor: </label> <input type="number" name="valor" /> <br/>
-            <label>Quantidade: </label> <input type="number" name="quantidade" /><br/>
-            <label>Descrição: </label> <input type="text" name="descricao" /><br/>
-            <label>Imagem: </label> <input type="text" name="imagem" />  <br/>
+            <label>Nome: </label> <input ref={nomeRef} type="text" name="nome" /> <br/>
+            <label>Valor: </label> <input ref={valorRef} type="number" name="valor" /> <br/>
+            <label>Quantidade: </label> <input ref={quantidadeRef} type="number" name="quantidade" /><br/>
+            <label>Descrição: </label> <input ref={descricaoRef} type="text" name="descricao" /><br/>
+            <label>Imagem: </label> <input ref={imagemRef} type="text" name="imagem" />  <br/>
             <input type="submit" value="Cadastrar" className="botao_cadastro"/>
         </form>
       </div>

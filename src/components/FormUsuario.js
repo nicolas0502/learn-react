@@ -2,8 +2,12 @@ import "./FormUsuario.css"
 import Facebook from "../assets/icons/facebook.png"
 import Instagram from "../assets/icons/instagram.png"
 import Google from "../assets/icons/google.png"
+import { useNavigate } from "react-router-dom"
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const FormUsuario = ({clientes, setClientes}) => {
+
+    const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -23,6 +27,11 @@ const FormUsuario = ({clientes, setClientes}) => {
           .then((data) => {
             alert(data.message)
             setClientes([ data.clientes , ...clientes])
+            if(data?.message){
+                navigate('carrinho');
+            }else {
+                console.log(data)
+            }
           });
     }
 
@@ -30,6 +39,7 @@ const FormUsuario = ({clientes, setClientes}) => {
 
     return (
         <div className="usuario_form">
+            <ArrowLeft onClick={() => {navigate("/cadastro-usuario-ou-vendedor")}} className="arrow_left_produto"/>
             <form onSubmit={(event) => handleSubmit(event)} className="form_usuario">
                 <h1>Cadastrar cliente</h1>
                 <div className="iconss">

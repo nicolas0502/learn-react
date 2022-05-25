@@ -1,6 +1,10 @@
 import "./FormVendedor.css"
+import { useNavigate } from 'react-router-dom'
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const FormVendedor = ({vendedores, setVendedores}) => {
+
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -27,6 +31,7 @@ const FormVendedor = ({vendedores, setVendedores}) => {
 
     return (
         <div className="vendedor_form">
+            <ArrowLeft onClick={() => {navigate("/cadastro-usuario-ou-vendedor")}} className="arrow_left_produto"/>
             <form onSubmit={(event) => handleSubmit(event)} className="form_vendedor">
                 <h1>Cadastrar Vendedor</h1>
                 <label for="nome">Nome:</label><input type="text" name="nome"/>

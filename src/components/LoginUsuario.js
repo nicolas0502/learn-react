@@ -2,10 +2,16 @@ import "./LoginUsuario.css"
 import Facebook from "../assets/icons/facebook.png"
 import Instagram from "../assets/icons/instagram.png"
 import Google from "../assets/icons/google.png"
+import { useNavigate } from 'react-router-dom'
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const LoginUsuario = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="login_usua">
+        <ArrowLeft onClick={() => {navigate("/login-usuario-ou-vendedor")}} className="arrow_left_produto"/>
         <div className="left_usua">
             <h1>Fazer Login</h1>
             <div className="iconsss">

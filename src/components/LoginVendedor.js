@@ -1,8 +1,14 @@
 import "./LoginVendedor.css"
+import { useNavigate } from 'react-router-dom'
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const LoginVendedor = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="login_vend">
+        <ArrowLeft onClick={() => {navigate("/login-usuario-ou-vendedor")}} className="arrow_left_produto"/>
         <div className="left_vend">
           <h1>Fazer Login</h1>
           <form className="form_login_usua">

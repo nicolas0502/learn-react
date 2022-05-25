@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .form_hq h1{
@@ -50,4 +51,12 @@ input[name="imagem"]{
     font-weight: bolder;
     font-size: 19px;
     width: 140px !important; 
+}
+
+.arrow_left_produto{
+    position:absolute;
+    left: 27px;
+    margin-top: 15px;
+    width: 30px;
+    height: 30px;
 }

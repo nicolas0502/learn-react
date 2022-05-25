@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import "./EditHq.css"
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const EditHq= () => {
 
@@ -44,6 +45,7 @@ const EditHq= () => {
         <>
         {hq ? (
             <div className="hq_edit">
+                <ArrowLeft onClick={() => {navigate("../")}} className="arrow_left_produto"/>
                 <form onSubmit={(event) => handleSubmit(event)} className="edit_hq">
                     <h1>Editar Produto</h1>
                     <label>Nome: </label> <input type="text" name="nome" defaultValue={hq.nome}/> <br/>
