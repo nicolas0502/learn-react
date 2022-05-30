@@ -13,30 +13,33 @@ import PaginaLoginUsuario from "./pages/PaginaLoginUsuario";
 import PaginaProduto from "./pages/PaginaProduto";
 import PaginaPagamento from "./pages/PaginaPagamento";
 import PaginaCarrinho from "./pages/PaginaCarrinho";
-import CarrinhoProvider from "./provider/CarrinhoProvider";
+import CarrinhoProvider from "./providers/CarrinhoProvider";
+import AuthProvider from './providers/authProvider';
 
 const Router = () => {
 return (  
-    <CarrinhoProvider>
-      <Routes>
-        <Route path="/" element={<PaginaInicial/>} />
-        <Route path="cadastra-vendedor" element={<PaginaFormVendedor/>}/>
-        <Route path="produto/:hqId" element={<PaginaProduto/>}/>
-        <Route path="pagamento" element={<PaginaPagamento/>}/>
-        <Route path="carrinho" element={<PaginaCarrinho/>}/>
-        <Route path="login-usuario-ou-vendedor" element={<PaginaPerguntaDeLogin/>}/>
-        <Route path="perfil-vendedor">
-          <Route index element={<PaginaPerfilAdm />}/>
-          <Route path="edit/:hqId" element={<PaginaEditarHq />} />
-          <Route path="cadastra-hq" element={<PaginaFormHq/>}/>
-        </Route>
-        <Route path="perfil-usuario" element={<PaginaPerfilUsua/>}/>
-        <Route path="cadastra-usuario" element={<PaginaFormUsuario/>}/>
-        <Route path="cadastro-usuario-ou-vendedor" element={<PaginaPerguntaDeCadastro />}/>
-        <Route path="login-vendedor" element={<PaginaLoginVendedor />}/>
-        <Route path="login-usuario" element={<PaginaLoginUsuario />}/>
-      </Routes>
-    </CarrinhoProvider>
+    <AuthProvider>
+      <CarrinhoProvider>
+        <Routes>
+          <Route path="/" element={<PaginaInicial/>} />
+          <Route path="cadastra-vendedor" element={<PaginaFormVendedor/>}/>
+          <Route path="produto/:hqId" element={<PaginaProduto/>}/>
+          <Route path="pagamento" element={<PaginaPagamento/>}/>
+          <Route path="carrinho" element={<PaginaCarrinho/>}/>
+          <Route path="login-usuario-ou-vendedor" element={<PaginaPerguntaDeLogin/>}/>
+          <Route path="perfil-vendedor">
+            <Route index element={<PaginaPerfilAdm />}/>
+            <Route path="edit/:hqId" element={<PaginaEditarHq />} />
+            <Route path="cadastra-hq" element={<PaginaFormHq/>}/>
+          </Route>
+          <Route path="perfil-usuario" element={<PaginaPerfilUsua/>}/>
+          <Route path="cadastra-usuario" element={<PaginaFormUsuario/>}/>
+          <Route path="cadastro-usuario-ou-vendedor" element={<PaginaPerguntaDeCadastro />}/>
+          <Route path="login-vendedor" element={<PaginaLoginVendedor />}/>
+          <Route path="login-usuario" element={<PaginaLoginUsuario />}/>
+        </Routes>
+      </CarrinhoProvider>
+    </AuthProvider>
   )
 }
 

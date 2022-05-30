@@ -4,23 +4,18 @@ const CarrinhoContext = createContext();
 
 const CarrinhoProvider = ({children}) => {
 
-	const [numItens, setNumItens] = useState(0);
-    const array = [12,65]
-	const [idItens, setIdItens] = useState(array);
+	const [idItens, setIdItens] = useState([]);
 
 	useEffect(() => {
 		const carrinhodata = localStorage.getItem('carrinhoItens')
-		let carrinho = JSON.parse(carrinhodata)
+		const carrinho = JSON.parse(carrinhodata)
 		if(carrinho){
 			setIdItens(carrinho)
-			setNumItens(carrinho.lenght)
 		}
 	},[])
 	
 	return (
 		<CarrinhoContext.Provider value={[
-			numItens,
-			setNumItens,
 			idItens,
             setIdItens
 		]}>
@@ -29,9 +24,13 @@ const CarrinhoProvider = ({children}) => {
 	)
 }
 
+export const saveCarrinhoLocalStorage = (idItens) => {
+	localStorage.setItem('carrinhoItens', JSON.stringify(idItens))
+}
+
 export const useCarrinho = () => {
-   const [numItens, setNumItens, idItens, setIdItens] = useContext(CarrinhoContext)
-   return {numItens, setNumItens, idItens, setIdItens}
+   const [idItens, setIdItens] = useContext(CarrinhoContext)
+   return {idItens, setIdItens}
 }
 
 export default CarrinhoProvider
