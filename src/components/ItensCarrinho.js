@@ -3,30 +3,46 @@ import "./ItensCarrinho.css"
 
 const ItensCarrinho = () => {
     const [hq, setHq] = useState();
+    const [count, setCount] = useState(1);
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id=1")
             .then((response) => response.json())
-            .then((data) => {setHq(data)
-                console.log(data)});
+            .then((data) => {setHq(data)});
     }, []);
+
+    function addNumber(){
+        setCount(count + 1);
+        console.log(count);
+    }
+
+    function removeNumber(){
+        setCount(count - 1);
+        console.log(count);
+    }
+
+
 
   return (
     <>
         {hq ? (
-                <div className='ItemCarrinho'>
-                    <div>{hq.imagem}</div>
-                    <div>
-                        <div>{hq.nome}</div>
-                        <div>Em 10x de R${((hq.valor / 10).toString().replace(".", ","))} sem juros</div>
+                <div className='item-carrinho'>
+                    <div className='item-imagem'>{hq.imagem}</div>
+                    <div className='item-n-p'>
+                        <div className="item-nome">{hq.nome}</div>
+                        <div className='item-parcela'>Em 10x de R${((hq.valor / 10).toString().replace(".", ","))} sem juros</div>
                     </div>
-                    <div>
-                        <div class="number-input">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="0" name="quantity" type="number" />
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                    <div className='item-add-quantidade'>
+                        <div className="number-input">
+                            <button onClick={() => removeNumber()} ></button>
+                            <input className="quantity" min="0" name="quantity" defaultValue={count} type="number" />
+                            <button onClick={() => addNumber()} className="plus"></button>
+                        </div>
+                        <div className='item-quantidade'>
+                            {hq.quantidade} Unidades
                         </div>
                     </div>
+                    <div className='item-valor'>R${((hq.valor * count).toString().replace(".", ","))}</div>
                 </div>            
             )
         : 
