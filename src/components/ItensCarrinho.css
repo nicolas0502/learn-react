@@ -1,11 +1,11 @@
-input[type="number"] {
+.number-input input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
@@ -82,6 +82,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 35px;
   background-color: #212121;
   border-radius: 5px;
+  color: #f0f0f0;
 }
 
 .item-nome{
@@ -102,6 +103,48 @@ input[type=number]::-webkit-outer-spin-button {
 .item-valor{
   font-size:30px;
   font-weight: 500;
-  margin: 0 70px;
+  margin-left:70px;
+  margin-right: 100px; 
   width: 50px;
+}
+
+.valor_total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EF2121;
+  height: 80px;
+  color:#FFF;
+}
+
+.valor_total p{
+  margin: 0 20px; 
+  font-size: 20px;
+}
+
+.buy_now{
+  height: 80px;
+  background-color: #F16363;
+  justify-content: end;
+  align-items: center;
+  display: flex;
+
+}
+
+.button_buy_now{
+  background-color: #C90000;
+  color: #FFF;
+  height: 40px;
+  width: 200px;
+  border: none;
+  border-radius:5px;
+  margin-right: 20px;
+}
+
+.itenzinho{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 600px;
+  max-height: auto;
 }

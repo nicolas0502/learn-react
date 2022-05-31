@@ -45,7 +45,7 @@ const EditarHq = () => {
                     </div>
                     <div className="card-tittle">
                       <h1>{hq.nome}</h1>
-                      <p className="preco">R$ {hq.valor}</p>
+                      <p className="preco">R$ {((hq.valor).toString().replace(".", ","))}</p>
                       <div className="icons">
                         <div className="trash1">
                           <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>

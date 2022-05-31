@@ -26,7 +26,7 @@ const CardHqUsua = () => {
                     </div>
                     <div className="card-tittle">
                       <h1>{hq.nome}</h1>
-                      <p className="precoo">R$ {hq.valor}</p>               
+                      <p className="precoo">R$ {((hq.valor).toString().replace(".", ","))}</p>               
                     </div>
                   </div> 
                 )
