@@ -1,8 +1,15 @@
 import "./LoginVendedor.css"
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import { useRef, useEffect } from "react";
 
 const LoginVendedor = () => {
+
+  const emailRef = useRef();
+
+  useEffect(() => {
+    emailRef.current.focus()
+  })
 
   const navigate = useNavigate();
 
@@ -12,7 +19,7 @@ const LoginVendedor = () => {
         <div className="left_vend">
           <h1>Fazer Login</h1>
           <form className="form_login_usua">
-            <label for="email">Email:</label><input type="email" name="email"/>
+            <label for="email">Email:</label><input type="email" name="email" ref={emailRef}/>
             <label for="senha">Senha:</label><input type="password" name="senha"/>
             <input type="submit" value="Entrar" className="botao_cadastro"/>
           </form>

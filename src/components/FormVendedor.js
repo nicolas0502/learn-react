@@ -1,10 +1,17 @@
 import "./FormVendedor.css"
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import { useRef, useEffect } from "react";
 
 const FormVendedor = ({vendedores, setVendedores}) => {
 
     const navigate = useNavigate();
+
+    const nomeRef = useRef();
+
+    useEffect(() => {
+      nomeRef.current.focus()
+    })
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -24,8 +31,16 @@ const FormVendedor = ({vendedores, setVendedores}) => {
           )
           .then((response) => response.json())
           .then((data) => {
+            nomeRef.current.focus()
             alert(data.message)
             setVendedores([ data.vendedores , ...vendedores])
+            if(data?.cliente?.id){
+                navigate('/login-usuario');
+            } else if(data?.message){
+                alert(data.message)
+            } else {
+                console.log(data)
+            }
           });
     }
 
@@ -34,7 +49,7 @@ const FormVendedor = ({vendedores, setVendedores}) => {
             <ArrowLeft onClick={() => {navigate("/cadastro-usuario-ou-vendedor")}} className="arrow_left_produto"/>
             <form onSubmit={(event) => handleSubmit(event)} className="form_vendedor">
                 <h1>Cadastrar Vendedor</h1>
-                <label for="nome">Nome:</label><input type="text" name="nome"/>
+                <label for="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
                 <label for="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
                 <label for="email">Email:</label><input type="email" name="email"/>
                 <label for="telefone">Telefone:</label><input type="text" name="telefone"/>

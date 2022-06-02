@@ -4,8 +4,15 @@ import Instagram from "../assets/icons/instagram.png"
 import Google from "../assets/icons/google.png"
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import { useRef, useEffect } from "react";
 
 const LoginUsuario = () => {
+
+  const emailRef = useRef();
+
+  useEffect(() => {
+    emailRef.current.focus()
+  })
 
   const navigate = useNavigate();
 
@@ -29,7 +36,7 @@ const LoginUsuario = () => {
                     </div>
             </div>
             <form className="form_login_usua">
-              <label for="email">Email:</label><input type="email" name="email"/>
+              <label for="email">Email:</label><input type="email" name="email" ref={emailRef}/>
               <label for="senha">Senha:</label><input type="password" name="senha"/>
               <input type="submit" value="Entrar" className="botao_cadastro"/>
             </form>

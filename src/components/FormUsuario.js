@@ -3,9 +3,16 @@ import Facebook from "../assets/icons/facebook.png"
 import Instagram from "../assets/icons/instagram.png"
 import Google from "../assets/icons/google.png"
 import { useNavigate } from "react-router-dom"
+import { useRef, useEffect } from "react";
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const FormUsuario = ({clientes, setClientes}) => {
+
+    const nomeRef = useRef();
+
+    useEffect(() => {
+      nomeRef.current.focus()
+    })
 
     const navigate = useNavigate()
 
@@ -25,11 +32,14 @@ const FormUsuario = ({clientes, setClientes}) => {
           )
           .then((response) => response.json())
           .then((data) => {
+            nomeRef.current.focus()
             alert(data.message)
             setClientes([ data.clientes , ...clientes])
-            if(data?.message){
-                navigate('carrinho');
-            }else {
+            if(data?.clientes?.id){
+                navigate('/login-usuario');
+            } else if(data?.message){
+                alert(data.message)
+            } else {
                 console.log(data)
             }
           });
@@ -56,7 +66,7 @@ const FormUsuario = ({clientes, setClientes}) => {
                         <h3>Instagram</h3>
                     </div>
                 </div>
-                <label for="nome">Nome:</label><input type="text" name="nome"/>
+                <label for="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
                 <label for="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
                 <label for="email">Email:</label><input type="email" name="email"/>
                 <label for="telefone">Telefone:</label><input type="text" name="telefone"/>
