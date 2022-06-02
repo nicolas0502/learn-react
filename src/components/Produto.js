@@ -41,7 +41,7 @@ const Produto = () => {
                     <div className='info_produ'>
                         <h1 className='produ_nome'>{hq.nome}</h1>
                         <div className='valor_parcela'> 
-                            <div className='produ_valor'>R$ {hq.valor}</div>
+                            <div className='produ_valor'>R$ {((hq.valor).toString().replace(".", ","))}</div>
                             <div className='produ_parcela'>Em 10x de R${((hq.valor / 10).toString().replace(".", ","))} sem juros</div>
                         </div>
                         <div className='quantidade_de_produto'>

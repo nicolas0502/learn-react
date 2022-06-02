@@ -14,7 +14,7 @@ import PaginaProduto from "./pages/PaginaProduto";
 import PaginaPagamento from "./pages/PaginaPagamento";
 import PaginaCarrinho from "./pages/PaginaCarrinho";
 import CarrinhoProvider from "./providers/CarrinhoProvider";
-import AuthProvider from './providers/authProvider';
+import AuthProvider from './providers/AuthProvider';
 
 const Router = () => {
 return (  
