@@ -31,6 +31,7 @@ const ItensCarrinho = () => {
 
   return (
     <div className='itenzinho'>
+        <div className='iteem'>
         {hqs &&
             hqs.map((hq) => {
                 return(
@@ -55,6 +56,7 @@ const ItensCarrinho = () => {
                 )
             })
         }
+        </div>
         <div>
             <div className='valor_total'>
                 <p>
