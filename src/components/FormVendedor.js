@@ -33,14 +33,8 @@ const FormVendedor = ({vendedores, setVendedores}) => {
           .then((data) => {
             nomeRef.current.focus()
             alert(data.message)
-            setVendedores([ data.vendedores , ...vendedores])
-            if(data?.cliente?.id){
-                navigate('/login-usuario');
-            } else if(data?.message){
-                alert(data.message)
-            } else {
-                console.log(data)
-            }
+            navigate('/login-vendedor');
+            setVendedores([ data.vendedor , ...vendedores])
           });
     }
 
@@ -49,15 +43,15 @@ const FormVendedor = ({vendedores, setVendedores}) => {
             <ArrowLeft onClick={() => {navigate("/cadastro-usuario-ou-vendedor")}} className="arrow_left_produto"/>
             <form onSubmit={(event) => handleSubmit(event)} className="form_vendedor">
                 <h1>Cadastrar Vendedor</h1>
-                <label for="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
-                <label for="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
-                <label for="email">Email:</label><input type="email" name="email"/>
-                <label for="telefone">Telefone:</label><input type="text" name="telefone"/>
-                <label for="cpf">CPF:</label><input type="text" name="cpf"/>
-                <label for="rg">RG:</label><input type="text" name="rg"/>
-                <label for="nascimento">Data de Nascimento:</label><input type="text" name="nascimento"/>
-                <label for="senha">Senha:</label><input type="password" name="senha"/>
-                <label for="cep">CEP:</label><input type="text" name="cep"/>
+                <label htmlFor="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
+                <label htmlFor="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
+                <label htmlFor="email">Email:</label><input type="email" name="email"/>
+                <label htmlFor="telefone">Telefone:</label><input type="text" name="telefone" maxLength={11}/>
+                <label htmlFor="cpf">CPF:</label><input type="text" name="cpf" maxLength={11}/>
+                <label htmlFor="rg">RG:</label><input type="text" name="rg" maxLength={9}/>
+                <label htmlFor="nascimento">Data de Nascimento:</label><input type="date" name="nascimento"/>
+                <label htmlFor="senha">Senha:</label><input type="password" name="senha"/>
+                <label htmlFor="cep">CEP:</label><input type="text" name="cep" maxLength={8}/>
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>
         </div>

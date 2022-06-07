@@ -147,6 +147,7 @@
 
 .itenzinho{
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   min-height: 600px;
   max-height: auto;

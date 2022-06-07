@@ -34,14 +34,7 @@ const FormUsuario = ({clientes, setClientes}) => {
           .then((data) => {
             nomeRef.current.focus()
             alert(data.message)
-            setClientes([ data.clientes , ...clientes])
-            if(data?.clientes?.id){
-                navigate('/login-usuario');
-            } else if(data?.message){
-                alert(data.message)
-            } else {
-                console.log(data)
-            }
+            setClientes([ data.cliente , ...clientes])
           });
     }
 
@@ -66,13 +59,13 @@ const FormUsuario = ({clientes, setClientes}) => {
                         <h3>Instagram</h3>
                     </div>
                 </div>
-                <label for="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
-                <label for="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
-                <label for="email">Email:</label><input type="email" name="email"/>
-                <label for="telefone">Telefone:</label><input type="text" name="telefone"/>
-                <label for="cpf">CPF:</label><input type="text" name="cpf"/>
-                <label for="nascimento">Data de Nascimento:</label><input type="text" name="nascimento"/>
-                <label for="senha">Senha:</label><input type="password" name="senha"/>
+                <label htmlFor="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
+                <label htmlFor="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
+                <label htmlFor="email">Email:</label><input type="email" name="email"/>
+                <label htmlFor="telefone">Telefone:</label><input type="text" name="telefone" maxLength={11}/>
+                <label htmlFor="cpf">CPF:</label><input type="text" name="cpf" maxLength={11}/>
+                <label htmlFor="nascimento">Data de Nascimento:</label><input type="date" name="nascimento"/>
+                <label htmlFor="senha">Senha:</label><input type="password" name="senha"/>
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>
         </div>
