@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useRef, useEffect } from "react";
 
-const FormVendedor = ({vendedores, setVendedores}) => {
+const FormVendedor = () => {
 
     const navigate = useNavigate();
 
@@ -32,9 +32,14 @@ const FormVendedor = ({vendedores, setVendedores}) => {
           .then((response) => response.json())
           .then((data) => {
             nomeRef.current.focus()
-            alert(data.message)
-            navigate('/login-vendedor');
-            setVendedores([ data.vendedor , ...vendedores])
+            alert(data.message);
+            if(data?.vendedor){
+              navigate('/login-vendedor');
+            } else if(data?.message){
+                alert(data.message)
+            } else {
+                console.log(data)
+            }
           });
     }
 

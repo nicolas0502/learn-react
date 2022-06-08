@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { useRef, useEffect } from "react";
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
-const FormUsuario = ({clientes, setClientes}) => {
+const FormUsuario = () => {
 
     const nomeRef = useRef();
 
@@ -34,7 +34,13 @@ const FormUsuario = ({clientes, setClientes}) => {
           .then((data) => {
             nomeRef.current.focus()
             alert(data.message)
-            setClientes([ data.cliente , ...clientes])
+            if(data?.cliente){
+                navigate('/login-usuario');
+            } else if(data?.message){
+                alert(data.message)
+            } else {
+                console.log(data)
+            }
           });
     }
 
