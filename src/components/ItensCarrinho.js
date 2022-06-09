@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import AmountProd from './AmountProd';
 import "./ItensCarrinho.css"
 
 const ItensCarrinho = () => {
     const [hqs, setHqs] = useState(null);
-    const [count, setCount] = useState(1);
     const navigate = useNavigate()
 
 
@@ -16,18 +16,6 @@ const ItensCarrinho = () => {
             .then((response) => response.json())
             .then((data) => {setHqs(data)});
     }, []);
-
-    function addNumber(){
-        setCount(count + 1);
-        console.log(count);
-    }
-
-    function removeNumber(){
-        setCount(count - 1);
-        console.log(count);
-    }
-
-
 
   return (
     <div className='itenzinho'>
@@ -43,15 +31,12 @@ const ItensCarrinho = () => {
                         </div>
                         <div className='item-add-quantidade'>
                             <div className="number-input">
-                                <button onClick={() => removeNumber()} ></button>
-                                <input className="quantity" min="0" name="quantity" defaultValue={count} type="number" />
-                                <button onClick={() => addNumber()} className="plus"></button>
+                                <AmountProd value={hq.valor} quanti={hq.quantidade} />
                             </div>
                             <div className='item-quantidade'>
                                 {hq.quantidade} Unidades
                             </div>
                         </div>
-                        <div className='item-valor'>R${((hq.valor).toString().replace(".", ","))}</div>
                     </div>          
                 )
             })
@@ -63,7 +48,7 @@ const ItensCarrinho = () => {
                     Valor Total
                 </p>
                 <p>
-                    R$asdadasdasd
+                    R$
                 </p>
             </div>
             <div className='buy_now'>

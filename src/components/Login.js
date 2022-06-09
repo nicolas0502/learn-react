@@ -5,15 +5,32 @@ import { Link } from "react-router-dom"
 import { useAuth } from '../providers/AuthProvider'
 
 const Login = () => {
-
     const {isLogged, userLogged} = useAuth();
+
+    function Userhandle() {
+        if(userLogged.tipo === "cliente"){
+            return(
+                <span>
+                    <Link to="/perfil-usuario">{userLogged.email}</Link>
+                </span>
+            )
+
+        }else{
+            return(
+                <span>
+                    <Link to="/perfil-vendedor">{userLogged.email}</Link>
+                </span>
+            )
+   
+        }
+    }
 
     return (
         <div className="usuario">
            { isLogged
                 ? (
                     <>
-                      <span>{userLogged.email}</span> 
+                        {Userhandle()}
                     </>
                 )
                 : ( 

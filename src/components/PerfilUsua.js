@@ -4,17 +4,20 @@ import { useNavigate } from 'react-router-dom'
 import {MdModeEditOutline as EditUsua} from 'react-icons/md'
 import {  FaPowerOff } from 'react-icons/fa'
 import { useAuth } from '../providers/AuthProvider'
+import { useUserDados } from "../providers/UserProvider"
 
 const PerfilUsua = () => {
 
     const navigate = useNavigate();
 
-    const {setIsLogged, setUserLogged} = useAuth();
+    const {setIsLogged, setUserLogged, userLogged} = useAuth();
+    const {userDados} = useUserDados()
 
     const logout = () => {
         setIsLogged(false)
         setUserLogged({})
         localStorage.removeItem('userLogged')
+        localStorage.removeItem('carrinhoItens')
         alert('Deslogado com sucesso')
         navigate('/')
       }
@@ -24,10 +27,10 @@ const PerfilUsua = () => {
             <div className="info_usua">
                 <img src={FotoUsua} alt="Foto de Usuario" className="foto_usua" />
                 <div className="informacoes">
-                    <h1>Nicolas Sousa de Moraes</h1>
-                    <h1>nicolas@gmail.com</h1>
-                    <h1>XXX.XXX.XXX-XX</h1>
-                    <h1>(XX)XXXXX-XXXX</h1>
+                <h1>{userDados.nome} {userDados.sobrenome}</h1>
+                    <h1>{userLogged.email}</h1>
+                    <h1>{userDados.cpf}</h1>
+                    <h1>{userDados.telefone}</h1>
                 </div>
                 <div className="editusua1">
                     <EditUsua className="editusua" onClick={ () => {navigate("edit-usuario")}} />

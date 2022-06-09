@@ -1,0 +1,45 @@
+#countValue{
+    height: 50px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contProd{
+    font-weight: 600;
+    border: 1px solid rgba(107, 107, 107, 0.664);
+    border-radius: 3px;
+}
+
+#contProd button{
+    font-weight: 900;
+    font-size: 1rem;
+    background-color: #f04747;
+    border: none;
+}
+
+#contProd button:focus{
+    box-shadow: none;
+}
+
+#display{
+    width: 50px;
+    text-align: center;
+    align-self: center;
+    padding: 7px;
+    background-color: rgb(233, 233, 233);
+}
+
+#plusBtn{
+    border-radius: 0 3px 3px 0;
+}
+
+#subBtn{
+    border-radius: 3px 0 0 3px;
+}
+
+#valor_total{
+    margin: 0;
+    font-size: 25px;
+}

@@ -15,10 +15,12 @@ import PaginaPagamento from "./pages/PaginaPagamento";
 import PaginaCarrinho from "./pages/PaginaCarrinho";
 import CarrinhoProvider from "./providers/CarrinhoProvider";
 import AuthProvider from './providers/AuthProvider';
+import UserProvider from './providers/UserProvider'
 
 const Router = () => {
 return (  
     <AuthProvider>
+      <UserProvider>
       <CarrinhoProvider>
         <Routes>
           <Route path="/" element={<PaginaInicial/>} />
@@ -39,6 +41,7 @@ return (
           <Route path="login-usuario" element={<PaginaLoginUsuario />}/>
         </Routes>
       </CarrinhoProvider>
+      </UserProvider>
     </AuthProvider>
   )
 }

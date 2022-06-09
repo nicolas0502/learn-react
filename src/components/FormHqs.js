@@ -28,6 +28,7 @@ const FormHqs = ({hqs, setHqs}) => {
       formData.append('quantidade', event.target[2].value);
       formData.append('descricao', event.target[3].value);
       formData.append('imagem', event.target[4].value);
+      formData.append('id_vendedor', userLogged.id);
       fetch(
         "http://localhost/LP2/api/hq/create",
           {method: 'POST', 

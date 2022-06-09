@@ -3,18 +3,20 @@ import "./CardHq.css"
 import { useNavigate } from 'react-router-dom'
 import {BsTrash as IconTrash} from "react-icons/bs"
 import {MdModeEditOutline as EditHq} from 'react-icons/md'
+import { useAuth } from '../providers/AuthProvider';
 
 const EditarHq = () => {
 
     const [hqs, setHqs] = useState(null)
     const navigate = useNavigate();
+    const {userLogged} = useAuth();
 
     useEffect(() =>{
-        fetch("http://localhost/LP2/api/hq/select-all")
+        fetch("http://localhost/LP2/api/hq/select-hq-by-vendedor/?id="+userLogged.id)
         .then((response) => response.json())
         .then((data) => setHqs(data))
     
-    }, [])
+    }, [userLogged.id])
 
     const handleTrashClick = (hqId) => {
         const formData = new FormData();

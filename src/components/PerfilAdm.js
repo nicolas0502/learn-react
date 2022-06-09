@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import {MdModeEditOutline as EditAdm} from 'react-icons/md'
 import {  FaPowerOff } from 'react-icons/fa'
 import { useAuth } from '../providers/AuthProvider'
+import { useUserDados } from "../providers/UserProvider"
 
 
 
@@ -12,12 +13,14 @@ const PerfilAdm = () => {
 
     const navigate = useNavigate();
 
-    const {setIsLogged, setUserLogged} = useAuth();
+    const {setIsLogged, setUserLogged, userLogged} = useAuth();
+    const {userDados} = useUserDados()
 
     const logout = () => {
         setIsLogged(false)
         setUserLogged({})
         localStorage.removeItem('userLogged')
+        localStorage.removeItem('carrinhoItens')
         alert('Deslogado com sucesso')
         navigate('/')
     }
@@ -29,10 +32,10 @@ const PerfilAdm = () => {
             <div className="info_adm">
                 <img src={FotoUsua} alt="Foto de perfil do administrador" className="foto_adm" />
                 <div className="informacoes">
-                    <h1>Nicolas Sousa de Moraes</h1>
-                    <h1>nicolas@gmail.com</h1>
-                    <h1>XXX.XXX.XXX-XX</h1>
-                    <h1>(XX)XXXXX-XXXX</h1>
+                    <h1>{userDados.nome} {userDados.sobrenome}</h1>
+                    <h1>{userLogged.email}</h1>
+                    <h1>{userDados.cpf}</h1>
+                    <h1>{userDados.telefone}</h1>
                 </div>
                 <div className="editadm1">
                     <EditAdm className="editadm" onClick={ () => {navigate("edit-admin")}} />
