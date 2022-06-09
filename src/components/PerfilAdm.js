@@ -3,10 +3,25 @@ import FotoUsua from "../assets/img/foto de usuario.svg"
 import CardHq from "./CardHqAdm"
 import { useNavigate } from 'react-router-dom'
 import {MdModeEditOutline as EditAdm} from 'react-icons/md'
+import {  FaPowerOff } from 'react-icons/fa'
+import { useAuth } from '../providers/AuthProvider'
+
 
 
 const PerfilAdm = () => {
-    let navigate = useNavigate();
+
+    const navigate = useNavigate();
+
+    const {setIsLogged, setUserLogged} = useAuth();
+
+    const logout = () => {
+        setIsLogged(false)
+        setUserLogged({})
+        localStorage.removeItem('userLogged')
+        alert('Deslogado com sucesso')
+        navigate('/')
+    }
+    
     
     return (
         <>
@@ -21,6 +36,7 @@ const PerfilAdm = () => {
                 </div>
                 <div className="editadm1">
                     <EditAdm className="editadm" onClick={ () => {navigate("edit-admin")}} />
+                    <FaPowerOff  className="logout" onClick={logout}/>
                 </div>
                 
             </div>

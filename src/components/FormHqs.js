@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import "./FormHqs.css"
+import { useAuth } from '../providers/AuthProvider';
 
 const FormHqs = ({hqs, setHqs}) => {
 
@@ -11,6 +12,7 @@ const FormHqs = ({hqs, setHqs}) => {
     const quantidadeRef = useRef();
     const descricaoRef = useRef();
     const imagemRef = useRef();
+    const {userLogged} = useAuth();
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -28,7 +30,11 @@ const FormHqs = ({hqs, setHqs}) => {
       formData.append('imagem', event.target[4].value);
       fetch(
         "http://localhost/LP2/api/hq/create",
-        {method: 'POST', body: formData}
+          {method: 'POST', 
+          body: formData,
+          headers: {
+          "Access-Token": userLogged.token
+        }}
         )
         .then((response) => response.json())
         .then((data) => {
