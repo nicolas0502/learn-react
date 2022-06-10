@@ -3,23 +3,28 @@ import Entrar from "../assets/icons/entrar.svg"
 import Cadastrar from "../assets/icons/cadastrar.svg"
 import { Link } from "react-router-dom"
 import { useAuth } from '../providers/AuthProvider'
+import { FaUserCircle } from "react-icons/fa"
+import { useUserDados } from '../providers/UserProvider'
 
 const Login = () => {
     const {isLogged, userLogged} = useAuth();
+    const {userDados} = useUserDados();
 
     function Userhandle() {
         if(userLogged.tipo === "cliente"){
             return(
-                <span>
-                    <Link to="/perfil-usuario">{userLogged.email}</Link>
-                </span>
+                <Link to="/perfil-usuario" className="userdados">
+                    <FaUserCircle className="icon-user"/>
+                    <span className="nome-usuario">{userDados.nome} {userDados.sobrenome}</span>
+                </Link>
             )
 
         }else{
             return(
-                <span>
-                    <Link to="/perfil-vendedor">{userLogged.email}</Link>
-                </span>
+                <Link className="userdados" to="/perfil-vendedor">
+                    <FaUserCircle className="icon-user"/>
+                    <span className="nome-usuario">{userDados.nome} {userDados.sobrenome}</span>
+                </Link>
             )
    
         }

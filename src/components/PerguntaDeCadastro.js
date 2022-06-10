@@ -2,10 +2,15 @@ import "./PerguntaDeCadastro.css"
 import Usua from "../assets/icons/usua.svg"
 import { Link } from "react-router-dom"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom'
 
 const PerguntaDeCadastro = () => {
+
+    const navigate = useNavigate();
+
     return (
         <>
+        <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left_produto"/>
         <div className="card_pergunta">
             <h1>Você quer ser um Vendedor ou um Usuário?</h1>
             <div className="respostas">

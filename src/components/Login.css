@@ -15,4 +15,36 @@
     width: 100px;
 }
 
+.userdados{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(0, 0, 0, 0.562);
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.userdados:hover{
+    color: black;
+}
+
+
+.icon-user{
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+}
+
+.nome-usuario{
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
 

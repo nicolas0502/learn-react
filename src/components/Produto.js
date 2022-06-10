@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import "./Produto.css"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useCarrinho, saveCarrinhoLocalStorage } from '../providers/CarrinhoProvider';
+import { useAuth } from '../providers/AuthProvider';
 
 
 
@@ -11,6 +12,7 @@ const Produto = () => {
     const { hqId } = useParams();
     const [hq, setHq] = useState();
     const navigate = useNavigate();
+    const { isLogged } = useAuth();
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -22,13 +24,24 @@ const Produto = () => {
     const {idItens, setIdItens} = useCarrinho()
 
     function addCarrinho(id) {
-        if(idItens.includes(id)){
-            alert("Item já adicionado ao carrinho")
-        }else{
-            setIdItens([...idItens, id])
-            saveCarrinhoLocalStorage([...idItens, id])
+        if(isLogged) {
+            if(idItens.includes(id)){
+                alert("Item já adicionado ao carrinho")
+            }else{
+                setIdItens([...idItens, id])
+                saveCarrinhoLocalStorage([...idItens, id])
+            }
+        } else {
+            alert("Você precisa estar logado para adicionar um item ao carrinho")
+        }       
+    }
+
+    function Pagamento(){
+        if(isLogged) {
+            navigate("/pagamento")
+        } else {
+            alert("Você precisa estar logado para realizar um pagamento")
         }
-        
     }
 
   return (
@@ -49,7 +62,7 @@ const Produto = () => {
                             <div className='quantidade_produ'><label>Quantidade da compra:</label> <input type="number" min="1" max={hq.quantidade} defaultValue="1" name='quantidade'/></div>
                         </div>
                         <div className='butoes'>
-                            <button className='buton1' onClick={() => navigate("/pagamento")} > Comprar Agora </button>
+                            <button className='buton1' onClick={() => Pagamento()} > Comprar Agora </button>
                             <button className='buton2' onClick={() => addCarrinho(hq.id)}> Adicionar ao Carrinho </button>
                         </div>
                     </div>
