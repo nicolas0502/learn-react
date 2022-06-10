@@ -89,3 +89,19 @@
   min-height: 600px;
   max-height: auto;
 }
+
+.carrinho_vazio{
+  height: 300px;
+  width: 800px;
+  background-color: #dd0000bb;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.carrinho_vazio h3{
+  font-size: 20px;
+}
