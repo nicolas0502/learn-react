@@ -33,7 +33,7 @@ const PerfilUsua = () => {
                     <h1>{userDados.telefone}</h1>
                 </div>
                 <div className="editusua1">
-                    <EditUsua className="editusua" onClick={ () => {navigate("edit-usuario")}} />
+                    <EditUsua className="editusua" onClick={ () => {navigate("/edit-usuario")}} />
                     <FaPowerOff  className="logout" onClick={logout}/>
                 </div>
             </div>
