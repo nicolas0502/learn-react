@@ -12,7 +12,7 @@ const CarrinhoProvider = ({children}) => {
 		if(carrinho){
 			setIdItens(carrinho)
 		}
-	},[idItens])
+	},[])
 	
 	return (
 		<CarrinhoContext.Provider value={[

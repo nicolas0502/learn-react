@@ -43,16 +43,16 @@ const EditVend= () => {
         <>
         {userLogged ? (
             <div className="hq_edit">
-                <ArrowLeft onClick={() => {navigate("/perfil-usuario")}} className="arrow_left_produto"/>
+                <ArrowLeft onClick={() => {navigate("/perfil-vendedor")}} className="arrow_left_produto"/>
                 <form onSubmit={(event) => handleSubmit(event)} className="edit_hq">
                     <h1>Editar Perfil</h1>
                     <label>Nome: </label> <input type="text" name="nome" defaultValue={userDados.nome}/> <br/>
                     <label>Sobrenome: </label> <input type="text" name="sobrenome" defaultValue={userDados.sobrenome} /> <br/>
-                    <label>Telefone: </label> <input type="text" name="telefone" defaultValue={userDados.telefone} maxLength={11}/><br/>
-                    <label>CPF: </label> <input type="text" name="cpf" defaultValue={userDados.cpf} maxLength={11}/><br/>
-                    <label>RG: </label> <input type="text" name="rg" defaultValue={userDados.rg} maxLength={9}/><br/>
+                    <label>Telefone: </label> <input type="text" name="telefone" defaultValue={userDados.telefone} maxLength={11} minLength={11}/><br/>
+                    <label>CPF: </label> <input type="text" name="cpf" defaultValue={userDados.cpf} maxLength={11} minLength={11}/><br/>
+                    <label>RG: </label> <input type="text" name="rg" defaultValue={userDados.rg} maxLength={9} minLength={9}/><br/>
                     <label>Data de Nascimento: </label> <input type="date" name="nascimento" defaultValue={userDados.nascimento}/>  <br/>
-                    <label>CEP: </label> <input type="text" name="cep" defaultValue={userDados.cep} maxLength={8}/><br/>
+                    <label>CEP: </label> <input type="text" name="cep" defaultValue={userDados.cep} maxLength={8} minLength={8}/><br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
             </div>

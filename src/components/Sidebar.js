@@ -5,9 +5,9 @@ import {
   FaTimes, 
   FaHome,  
   FaUserAlt,  
-  FaShoppingCart,
-  FaPowerOff
+  FaShoppingCart
 } from 'react-icons/fa'
+import {  RiLogoutBoxLine } from 'react-icons/ri'
 import SidebarItem from './SidebarItem'
 import { useAuth } from '../providers/AuthProvider'
 
@@ -72,7 +72,7 @@ const Sidebar = ({ active }) => {
         <Link to="/" className='nav-link'><SidebarItem Icon={FaHome} Text="Incio"/></Link>
         {CardHandle()}
         {Pefilhandle()}
-        <div className='nav-link' onClick={logout}><SidebarItem Icon={FaPowerOff} Text="Sair"/></div>
+        <div className='nav-link' onClick={logout}><SidebarItem Icon={RiLogoutBoxLine} Text="Sair"/></div>
       </Content>
     </Container>
   )

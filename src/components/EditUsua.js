@@ -47,8 +47,8 @@ const EditUsua= () => {
                     <h1>Editar Perfil</h1>
                     <label>Nome: </label> <input type="text" name="nome" defaultValue={userDados.nome}/> <br/>
                     <label>Sobrenome: </label> <input type="text" name="sobrenome" defaultValue={userDados.sobrenome} /> <br/>
-                    <label>Telefone: </label> <input type="text" name="telefone" defaultValue={userDados.telefone} maxLength={11}/><br/>
-                    <label>CPF: </label> <input type="text" name="cpf" defaultValue={userDados.cpf}/> maxLength={11}<br/>
+                    <label>Telefone: </label> <input type="text" name="telefone" defaultValue={userDados.telefone} maxLength={11} minLength={11}/><br/>
+                    <label>CPF: </label> <input type="text" name="cpf" defaultValue={userDados.cpf}/> maxLength={11} minLength={11}<br/>
                     <label>Data de Nascimento: </label> <input type="date" name="nascimento" defaultValue={userDados.nascimento}/>  <br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>

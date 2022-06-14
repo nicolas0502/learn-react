@@ -51,12 +51,12 @@ const FormVendedor = () => {
                 <label htmlFor="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>
                 <label htmlFor="sobrenome">Sobrenome:</label><input type="text" name="sobrenome"/>
                 <label htmlFor="email">Email:</label><input type="email" name="email"/>
-                <label htmlFor="telefone">Telefone:</label><input type="text" name="telefone" maxLength={11}/>
-                <label htmlFor="cpf">CPF:</label><input type="text" name="cpf" maxLength={11}/>
-                <label htmlFor="rg">RG:</label><input type="text" name="rg" maxLength={9}/>
+                <label htmlFor="telefone">Telefone:</label><input type="text" name="telefone" maxLength={11} minLength={11}/>
+                <label htmlFor="cpf">CPF:</label><input type="text" name="cpf" maxLength={11} minLength={11} />
+                <label htmlFor="rg">RG:</label><input type="text" name="rg" maxLength={9} minLength={9}/>
                 <label htmlFor="nascimento">Data de Nascimento:</label><input type="date" name="nascimento"/>
                 <label htmlFor="senha">Senha:</label><input type="password" name="senha"/>
-                <label htmlFor="cep">CEP:</label><input type="text" name="cep" maxLength={8}/>
+                <label htmlFor="cep">CEP:</label><input type="text" name="cep" maxLength={8} minLength={8}/>
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>
         </div>

@@ -30,6 +30,7 @@ const Produto = () => {
             }else{
                 setIdItens([...idItens, id])
                 saveCarrinhoLocalStorage([...idItens, id])
+                alert("Item adicionado ao carrinho")
             }
         } else {
             alert("Você precisa estar logado para adicionar um item ao carrinho")

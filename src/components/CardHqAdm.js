@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import {BsTrash as IconTrash} from "react-icons/bs"
 import {MdModeEditOutline as EditHq} from 'react-icons/md'
 import { useAuth } from '../providers/AuthProvider';
+import { Alert } from "react-native"
 
 const EditarHq = () => {
 
@@ -18,13 +19,32 @@ const EditarHq = () => {
     
     }, [userLogged.id])
 
+    const [showBox, setShowBox] = useState(false);
+
     const handleTrashClick = (hqId) => {
-        const formData = new FormData();
+        Alert.alert(
+          "Você tem certeza que quer excluir esse item",
+          [
+            {
+              text: "Yes",
+              onPress: () => {
+                setShowBox(true);
+              },
+            },
+            {
+              text: "No",
+            },
+          ]
+        );
+        if(showBox){
+          const formData = new FormData();
         formData.append('id', hqId);
         fetch("http://localhost/LP2/api/hq/delete", {
           method: 'POST',
-          body: formData
-        })
+          body: formData,
+          headers: {
+            "Access-Token": userLogged.token
+          }})
           .then((response) => response.json())
           .then((data) => {
             alert(data.message)
@@ -33,6 +53,8 @@ const EditarHq = () => {
             });
             setHqs(hqFiltered)
           });
+        }
+        
 
     }
     return (
