@@ -17,6 +17,7 @@ import CarrinhoProvider from "./providers/CarrinhoProvider";
 import AuthProvider from './providers/AuthProvider';
 import UserProvider from './providers/UserProvider'
 import PaginaEditarUsua from "./pages/PaginaEditarUsua";
+import PaginaEditarVend from "./pages/PaginaEditarVend";
 
 const Router = () => {
 return (  
@@ -37,6 +38,7 @@ return (
           </Route>
           <Route path="perfil-usuario" element={<PaginaPerfilUsua/>}/>
           <Route path="edit-usuario" element={<PaginaEditarUsua/>}/>
+          <Route path="edit-vendedor" element={<PaginaEditarVend/>}/>
           <Route path="cadastra-usuario" element={<PaginaFormUsuario/>}/>
           <Route path="cadastro-usuario-ou-vendedor" element={<PaginaPerguntaDeCadastro />}/>
           <Route path="login-vendedor" element={<PaginaLoginVendedor />}/>

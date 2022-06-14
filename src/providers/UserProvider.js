@@ -12,7 +12,7 @@ const UserProvider = ({children}) => {
         .then((response) => response.json())
         .then((data) => setUserDados(data))
     
-    }, [userLogged.id, userLogged.tipo])
+    }, [userLogged.id, userLogged.tipo, userDados])
 
     return (
 		<UserContext.Provider value={[

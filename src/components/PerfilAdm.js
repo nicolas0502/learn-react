@@ -38,7 +38,7 @@ const PerfilAdm = () => {
                     <h1>{userDados.telefone}</h1>
                 </div>
                 <div className="editadm1">
-                    <EditAdm className="editadm" onClick={ () => {navigate("edit-admin")}} />
+                    <EditAdm className="editadm" onClick={ () => {navigate("/edit-vendedor")}} />
                     <FaPowerOff  className="logout" onClick={logout}/>
                 </div>
                 
