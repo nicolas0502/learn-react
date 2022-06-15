@@ -3,8 +3,7 @@ import "./CardHq.css"
 import { useNavigate } from 'react-router-dom'
 import {BsTrash as IconTrash} from "react-icons/bs"
 import {MdModeEditOutline as EditHq} from 'react-icons/md'
-import { useAuth } from '../providers/AuthProvider';
-import { Alert } from "react-native"
+import { useAuth } from '../providers/AuthProvider'
 
 const EditarHq = () => {
 
@@ -19,25 +18,8 @@ const EditarHq = () => {
     
     }, [userLogged.id])
 
-    const [showBox, setShowBox] = useState(false);
-
     const handleTrashClick = (hqId) => {
-        Alert.alert(
-          "Você tem certeza que quer excluir esse item",
-          [
-            {
-              text: "Yes",
-              onPress: () => {
-                setShowBox(true);
-              },
-            },
-            {
-              text: "No",
-            },
-          ]
-        );
-        if(showBox){
-          const formData = new FormData();
+        const formData = new FormData();
         formData.append('id', hqId);
         fetch("http://localhost/LP2/api/hq/delete", {
           method: 'POST',
@@ -54,9 +36,7 @@ const EditarHq = () => {
             setHqs(hqFiltered)
           });
         }
-        
 
-    }
     return (
         <>
         <div className="request">
