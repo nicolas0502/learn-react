@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import {BsTrash as IconTrash} from "react-icons/bs"
 import {MdModeEditOutline as EditHq} from 'react-icons/md'
 import { useAuth } from '../providers/AuthProvider'
+import ModalCentered from "./ModalCentered"
 
 const EditarHq = () => {
 
+    const [modalShow, setModalShow] = useState(false);
     const [hqs, setHqs] = useState(null)
     const navigate = useNavigate();
     const {userLogged} = useAuth();
@@ -18,32 +20,13 @@ const EditarHq = () => {
     
     }, [userLogged.id])
 
-    const handleTrashClick = (hqId) => {
-        const formData = new FormData();
-        formData.append('id', hqId);
-        fetch("http://localhost/LP2/api/hq/delete", {
-          method: 'POST',
-          body: formData,
-          headers: {
-            "Access-Token": userLogged.token
-          }})
-          .then((response) => response.json())
-          .then((data) => {
-            alert(data.message)
-            let hqFiltered = hqs.filter((hq) =>{ 
-              return hq.id !== hqId;
-            });
-            setHqs(hqFiltered)
-          });
-        }
-
     return (
         <>
         <div className="request">
         {hqs && 
             hqs.map((hq) => {
                 return (
-                  <div key={hq.id} className="api">
+                  <div key={hq.id} className="api1">
                     <div>
                       <p className="imgg">{hq.imagem}</p>
                     </div>
@@ -52,7 +35,14 @@ const EditarHq = () => {
                       <p className="preco">R$ {((hq.valor).toString().replace(".", ","))}</p>
                       <div className="icons">
                         <div className="trash1">
-                          <IconTrash onClick={() => handleTrashClick(hq.id)} className="icontrash"/>
+                        <ModalCentered
+                          show={modalShow}
+                          onHide={() => setModalShow(false)}
+                          excluir={hq.id}
+                          sethqs={setHqs}
+                          hqs={hqs}
+                        />
+                          <IconTrash onClick={() => setModalShow(true)} className="icontrash"/>
                         </div>
                         <div className="edit1">
                           <EditHq className="edithq" onClick={() => navigate('edit/'+hq.id)} />

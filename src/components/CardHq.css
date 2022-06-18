@@ -17,6 +17,24 @@
     cursor: pointer;
 }
 
+.api1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF;
+    color: #000;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    padding: 0 2px;
+    width: 20%;
+    min-height: 350px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    text-align: center;
+}
+
 .request{
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +53,13 @@
 }
 
 .api h1{
+    font-size: 23px;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+.api1 h1{
     font-size: 23px;
     margin: 0;
     padding: 0;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AmountProd from './AmountProd';
 import "./ItensCarrinho.css"
 import { useCarrinho } from "../providers/CarrinhoProvider"
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const ItensCarrinho = () => {
     const [hqs, setHqs] = useState(null);
@@ -65,7 +66,10 @@ const ItensCarrinho = () => {
             )
         }else{
             return(
+                <>
+                <ArrowLeft onClick={() => {navigate("../")}} className="arrow_left_produto"/>
                 <div className='carrinho_vazio'><h3>Não há intens no carrinho</h3></div>
+                </>
             )
         }
     }

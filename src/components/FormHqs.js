@@ -1,9 +1,10 @@
 import React from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import "./FormHqs.css"
 import { useAuth } from '../providers/AuthProvider';
+import ModalAlerts from "./ModalAlerts";
 
 const FormHqs = ({hqs, setHqs}) => {
 
@@ -13,6 +14,7 @@ const FormHqs = ({hqs, setHqs}) => {
     const descricaoRef = useRef();
     const imagemRef = useRef();
     const {userLogged} = useAuth();
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -39,13 +41,13 @@ const FormHqs = ({hqs, setHqs}) => {
         )
         .then((response) => response.json())
         .then((data) => {
+          setModalShow(true)
           nomeRef.current.value = ''
           valorRef.current.value = ''
           quantidadeRef.current.value = ''
           descricaoRef.current.value = ''
           imagemRef.current.value = ''
           nomeRef.current.focus()
-          alert(data.message)
           setHqs([ data.hq , ...hqs])
           console.log(data)
         });
@@ -63,6 +65,7 @@ const FormHqs = ({hqs, setHqs}) => {
             <label>Imagem: </label> <input ref={imagemRef} type="text" name="imagem" />  <br/>
             <input type="submit" value="Cadastrar" className="botao_cadastro"/>
         </form>
+        <ModalAlerts show={modalShow} message="A sua hq foi cadastrada com sucesso" title="Sucesso no cadastro" onHide={() => setModalShow(false)} />
       </div>
     )
 }
