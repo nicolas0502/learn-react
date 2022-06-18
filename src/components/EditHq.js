@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import "./EditHq.css"
+import { useAuth } from '../providers/AuthProvider';
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import ModalAlerts from "./ModalAlerts";
 
 const EditHq= () => {
 
     const { hqId } = useParams();
     const [hq, setHq] = useState();
     const navigate = useNavigate();
+    const {userLogged} = useAuth();
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -27,12 +31,15 @@ const EditHq= () => {
         formData.append('imagem', event.target[4].value)
         fetch(
             "http://localhost/LP2/api/hq/update",
-            {method: 'POST', body: formData}
-            )
+            {method: 'POST', 
+             body: formData,
+             headers: {
+                "Access-Token": userLogged.token
+            }})
             .then((response) => response.json())
             .then((data) => {
                 if(data?.hq?.id){
-                    navigate('../');
+                    setModalShow(true)
                 } else if(data?.message){
                     alert(data.message)
                 } else {
@@ -40,6 +47,11 @@ const EditHq= () => {
                 }
             })
     } 
+
+    const onHide = () => {
+        setModalShow(false)
+        navigate("../")
+    }
   
     return (
         <>
@@ -55,6 +67,7 @@ const EditHq= () => {
                     <label>Imagem: </label> <input type="text" name="imagem" defaultValue={hq.imagem}/>  <br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
+                <ModalAlerts show={modalShow} message="A sua HQ foi editada com sucesso" title="Sucesso na Edição" onHide={() => onHide()} />
             </div>
             )
         : 

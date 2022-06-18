@@ -13,7 +13,7 @@ function ModalAlerts(props) {
           {props.message}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>Fechar</Button>
+          <Button variant="secondary" onClick={props.onHide}>OK</Button>
         </Modal.Footer>
       </Modal>
     );
