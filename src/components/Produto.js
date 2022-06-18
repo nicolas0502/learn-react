@@ -4,15 +4,16 @@ import "./Produto.css"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useCarrinho, saveCarrinhoLocalStorage } from '../providers/CarrinhoProvider';
 import { useAuth } from '../providers/AuthProvider';
-
-
-
+import ModalAlerts from "./ModalAlerts"
 
 const Produto = () => {
     const { hqId } = useParams();
     const [hq, setHq] = useState();
     const navigate = useNavigate();
     const { isLogged } = useAuth();
+    const [modalShow, setModalShow] = useState(false);
+    const [message, setMessage] = useState("");
+    const [title, setTitle] = useState("")
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -26,14 +27,20 @@ const Produto = () => {
     function addCarrinho(id) {
         if(isLogged) {
             if(idItens.includes(id)){
-                alert("Item já adicionado ao carrinho")
+                setModalShow(true)
+                setTitle("Erro Ao Adicionar Produto")
+                setMessage("O Produto Já Está Adicionado Ao Carrinho")
             }else{
                 setIdItens([...idItens, id])
                 saveCarrinhoLocalStorage([...idItens, id])
-                alert("Item adicionado ao carrinho")
+                setModalShow(true)
+                setTitle("Adicionado Com Sucesso")
+                setMessage("O Produto Foi Adicionado Ao Carrinho")
             }
         } else {
-            alert("Você precisa estar logado para adicionar um item ao carrinho")
+            setModalShow(true)
+            setTitle("Erro Ao Adicionar Produto")
+            setMessage("Você Precisa Estar Logado Para Adicionar Um Item Ao Carrinho")
         }       
     }
 
@@ -41,7 +48,9 @@ const Produto = () => {
         if(isLogged) {
             navigate("/pagamento")
         } else {
-            alert("Você precisa estar logado para realizar um pagamento")
+            setModalShow(true)
+            setTitle("Erro Para Ir Ao Pagamento")
+            setMessage("Você Precisa Estar Logado Para Ir Ao Pagamento")
         }
     }
 
@@ -72,6 +81,7 @@ const Produto = () => {
                     <h3>Descrição:</h3>
                     <div className='produ_descricao'><p>{hq.descricao}</p></div>
                 </div>
+                <ModalAlerts show={modalShow} message={message} title={title} onHide={() => setModalShow(false)} />
             </div>
             )
         : 

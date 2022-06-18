@@ -36,14 +36,14 @@ function ModalCetered(props) {
             Atenção!!!
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <p>
+        <Modal.Body >
+          <p className="mt-4 mb-4">
             Tem certeza que deseja excluir esse produto?
           </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.onHide}>Cancelar</Button>
-          <Button variant="danger" onClick={() => handleTrashClick(props.excluir)}>Excluir</Button>
+          <Button variant="danger" onClick={() => {handleTrashClick(props.excluir)}}>Excluir</Button>
         </Modal.Footer>
       </Modal>
     );

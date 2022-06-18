@@ -10,10 +10,12 @@ function ModalAlerts(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {props.message}
+            <div className="mt-3 mb-3">
+                {props.message}
+            </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>OK</Button>
+          <Button variant="dark" onClick={props.onHide}>OK</Button>
         </Modal.Footer>
       </Modal>
     );

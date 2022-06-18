@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useRef, useEffect } from "react";
 import { useAuth } from "../providers/AuthProvider";
+import { useState } from "react";
+import ModalAlerts from "./ModalAlerts";
 
 const LoginUsuario = () => {
 
@@ -13,6 +15,11 @@ const LoginUsuario = () => {
   const senhaRef = useRef();
 
   const { setIsLogged, setUserLogged} = useAuth();
+  const [modalShow, setModalShow] = useState(false);
+  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const navigate = useNavigate();
+  const [nav, setNav] = useState("");
 
 
   useEffect(() => {
@@ -34,18 +41,23 @@ const LoginUsuario = () => {
                 setIsLogged(true)
                 setUserLogged(data.session)
                 localStorage.setItem('userLogged', JSON.stringify(data.session));
-                alert("Cliente logado com sucesso")
-                navigate('/');
+                setModalShow(true)
+                setMessage("O Usuário Foi Logado Com Sucesso")
+                setTitle("Sucesso ao Logar")
+                setNav("/");
             } else {
                 let data = await response.json()
-                data?.message
-                    ? alert(data.message)
-                    : alert('Erro ao Logar!')
+                setModalShow(true)
+                setMessage(data.message)
+                setTitle("Erro ao Logar")
             }
         })
 } 
 
-  const navigate = useNavigate();
+  const onHide = () => {
+    setModalShow(false)
+    navigate(nav)
+  }
 
   return (
     <div className="login_usua">
@@ -73,8 +85,9 @@ const LoginUsuario = () => {
             </form>
         </div>
         <div className="right_usua">
-          <p>Seja Bem - Vindo a nossa loja geek onde você encontra todo tipo de Mangas e HQs para a sua diversão</p>  
+          <p>Seja Bem - Vindo a nossa loja geek onde você encontra todo tipo de Mangas e HQs para a sua diversão.</p>  
         </div>
+        <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
     </div>
   )
 }

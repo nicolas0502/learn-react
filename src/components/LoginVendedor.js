@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useRef, useEffect } from "react";
 import { useAuth } from "../providers/AuthProvider";
+import { useState } from "react";
+import ModalAlerts from "./ModalAlerts";
 
 const LoginVendedor = () => {
 
@@ -10,12 +12,15 @@ const LoginVendedor = () => {
   const senhaRef = useRef();
 
   const { setIsLogged, setUserLogged} = useAuth();
+  const [modalShow, setModalShow] = useState(false);
+  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const navigate = useNavigate();
+  const [nav, setNav] = useState("");
 
   useEffect(() => {
     emailRef.current.focus()
   })
-
-  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -32,31 +37,40 @@ const LoginVendedor = () => {
                 setIsLogged(true)
                 setUserLogged(data.session)
                 localStorage.setItem('userLogged', JSON.stringify(data.session));
-                alert("Vendedor logado com sucesso")
-                navigate('/');
+                setModalShow(true)
+                setMessage("O Usuário Foi Logado Com Sucesso")
+                setTitle("Sucesso ao Logar")
+                setNav("/")
             } else {
                 let data = await response.json()
-                data?.message
-                    ? alert(data.message)
-                    : alert('Erro ao Logar!')
+                setModalShow(true)
+                setMessage(data.message)
+                setTitle("Erro ao Logar")
             }
-        })
-} 
+      })
+  } 
+  
+  const onHide = () => {
+    setModalShow(false)
+    navigate(nav)
+  }
+  
   return (
-    <div className="login_vend">
-        <ArrowLeft onClick={() => {navigate("/login-usuario-ou-vendedor")}} className="arrow_left_produto"/>
-        <div className="left_vend">
-          <h1>Fazer Login</h1>
-          <form className="form_login_usua" onSubmit={(event) => handleSubmit(event)}>
-            <label htmlFor="email">Email:</label><input type="email" name="email" ref={emailRef}/>
-            <label htmlFor="senha">Senha:</label><input type="password" name="senha" ref={senhaRef}/>
-            <input type="submit" value="Entrar" className="botao_cadastro"/>
-          </form>
-        </div>
-        <div className="right_vend">
-          <p>Seja Bem - Vindo a nossa loja geek onde você encontra todo tipo de Mangas e HQs para a sua diversão</p>  
-        </div>
-    </div>
+  <div className="login_vend">
+      <ArrowLeft onClick={() => {navigate("/login-usuario-ou-vendedor")}} className="arrow_left_produto"/>
+      <div className="left_vend">
+        <h1>Fazer Login</h1>
+        <form className="form_login_usua" onSubmit={(event) => handleSubmit(event)}>
+          <label htmlFor="email">Email:</label><input type="email" name="email" ref={emailRef}/>
+          <label htmlFor="senha">Senha:</label><input type="password" name="senha" ref={senhaRef}/>
+          <input type="submit" value="Entrar" className="botao_cadastro"/>
+        </form>
+      </div>
+      <div className="right_vend">
+        <p>Seja Bem - Vindo a nossa loja geek onde você encontra todo tipo de Mangas e HQs para a sua diversão.</p>  
+      </div>
+      <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
+  </div>
   )
 }
 

@@ -3,13 +3,17 @@ import "./EditHq.css"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useAuth } from '../providers/AuthProvider';
 import { useUserDados } from '../providers/UserProvider';
+import { useState } from "react";
+import ModalAlerts from "./ModalAlerts";
 
 const EditVend= () => {
 
     const navigate = useNavigate();
     const { userLogged } = useAuth();
     const { userDados } = useUserDados();
-
+    const [modalShow, setModalShow] = useState(false);
+    const [message, setMessage] = useState("");
+    const [title, setTitle] = useState("")
   
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -29,15 +33,21 @@ const EditVend= () => {
             .then((response) => response.json())
             .then((data) => {
                 if(data?.cliente?.id){
-                    alert('Dados atualizados com sucesso!')
-                    navigate('/perfil-vendedor');
+                    setModalShow(true);
+                    setTitle("Sucesso ao Editar")
+                    setMessage("Os Dados Foram Atualizados Com Sucesso!")
                 } else if(data?.message){
-                    alert(data.message)
-                } else {
-                    console.log(data)
+                    setModalShow(true);
+                    setTitle("Erro ao Editar")
+                    setMessage("Ocorreu um Erro ao Editar os Dados!")
                 }
             })
     } 
+
+    const onHide = () => {
+        setModalShow(false)
+        navigate("/perfil-vendedor")
+    }
   
     return (
         <>
@@ -55,6 +65,7 @@ const EditVend= () => {
                     <label>CEP: </label> <input type="text" name="cep" defaultValue={userDados.cep} maxLength={8} minLength={8}/><br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
+                <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
             </div>
             )
         : 

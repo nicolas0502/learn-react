@@ -9,9 +9,12 @@ import {
 } from 'react-icons/fa'
 import {  RiLogoutBoxLine } from 'react-icons/ri'
 import SidebarItem from './SidebarItem'
+import { useState } from "react";
 import { useAuth } from '../providers/AuthProvider'
+import ModalAlerts from "./ModalAlerts";
 
 const Sidebar = ({ active }) => {
+
   const closeSidebar = () => {
     active(false)
   }
@@ -19,6 +22,9 @@ const Sidebar = ({ active }) => {
   const navigate = useNavigate()
 
   const {setIsLogged, setUserLogged, userLogged, isLogged} = useAuth();
+  const [modalShow, setModalShow] = useState(false);
+  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
 
   const logout = () => {
     if(isLogged){
@@ -26,11 +32,19 @@ const Sidebar = ({ active }) => {
       setUserLogged({})
       localStorage.removeItem('userLogged')
       localStorage.removeItem('carrinhoItens')
-      alert('Deslogado com sucesso')
-      navigate('/')
+      setTitle("Deslogado")
+      setMessage("O usuário foi deslogado com sucesso")
+      setModalShow(true)
     }else{
-      alert('Você ja esta deslogado')
+      setTitle("Erro!!")
+      setModalShow(true)
+      setMessage("O usuário já está deslogado")
     }
+  }
+
+  const onHide = () => {
+    setModalShow(false)
+    navigate('/')
   }
 
   function Pefilhandle() {
@@ -66,6 +80,7 @@ const Sidebar = ({ active }) => {
   }
 
   return (
+    <>
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />  
       <Content>
@@ -75,6 +90,9 @@ const Sidebar = ({ active }) => {
         <div className='nav-link' onClick={logout}><SidebarItem Icon={RiLogoutBoxLine} Text="Sair"/></div>
       </Content>
     </Container>
+    <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
+    </>
+
   )
 }
 

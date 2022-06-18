@@ -6,6 +6,8 @@ import {MdModeEditOutline as EditAdm} from 'react-icons/md'
 import {  RiLogoutBoxLine } from 'react-icons/ri'
 import { useAuth } from '../providers/AuthProvider'
 import { useUserDados } from "../providers/UserProvider"
+import ModalAlerts from "./ModalAlerts"
+import { useState } from "react"
 
 
 
@@ -15,14 +17,18 @@ const PerfilAdm = () => {
 
     const {setIsLogged, setUserLogged, userLogged} = useAuth();
     const {userDados} = useUserDados()
+    const [modalShow, setModalShow] = useState(false);
+    const [message, setMessage] = useState("");
+    const [title, setTitle] = useState("")
 
     const logout = () => {
         setIsLogged(false)
         setUserLogged({})
         localStorage.removeItem('userLogged')
         localStorage.removeItem('carrinhoItens')
-        alert('Deslogado com sucesso')
-        navigate('/')
+        setTitle("Deslogado")
+        setMessage("O usuário foi deslogado com sucesso")
+        setModalShow(true)
     }
 
     let cpfNoFormat = userDados.cpf
@@ -37,6 +43,11 @@ const PerfilAdm = () => {
     let telp2 = telNoFormat.substring(2,7)
     let telp3 = telNoFormat.substring(7,11)
     const telFormat = "(" + telp1 + ")" + telp2 + "-" + telp3 
+
+    const onHide = () => {
+        setModalShow(false)
+        navigate('/')
+    }
 
     
     return (
@@ -62,6 +73,7 @@ const PerfilAdm = () => {
             <CardHq />
             <button className="buttonproduct" onClick={ () => {navigate("cadastra-hq")}}>Adicionar o Produto</button> 
         </div>
+        <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
     </>
     )
 }
