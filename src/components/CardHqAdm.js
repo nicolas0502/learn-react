@@ -28,7 +28,7 @@ const EditarHq = () => {
                 return (
                   <div key={hq.id} className="api1">
                     <div>
-                      <p className="imgg">{hq.imagem}</p>
+                    <img className="imggg" src={hq.imagem} alt="imagem do produto"/>
                     </div>
                     <div className="card-tittle">
                       <h1>{hq.nome}</h1>

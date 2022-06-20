@@ -20,7 +20,6 @@ const Card = () => {
             return (
                 <>
                 <Link to="/login-usuario-ou-vendedor"><img src={Compra} alt="Carrinho de compra" className="card"/></Link>
-                <div className="contador">{idItens.length}</div>
                 </>
             )
         }

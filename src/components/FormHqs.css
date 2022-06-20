@@ -37,6 +37,18 @@
     margin-right: auto;
 }
 
+.form_hq textarea{
+    width:  400px;
+    min-height: 150px;
+    max-height: 150px;
+    padding: 7px 7px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #757575;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 input[name="imagem"]{
     background-color: #FFF;
 }
@@ -59,4 +71,14 @@ input[name="imagem"]{
     margin-top: 15px;
     width: 30px;
     height: 30px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
 }

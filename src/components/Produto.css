@@ -18,8 +18,7 @@
 }
 
 .produ_imagem{
-    background-color: brown;
-    height: 400px;
+    height: 450px;
     width: 350px;
     margin-left: 100px;
     border-radius: 10px;
@@ -96,7 +95,7 @@
 
 .produ_descricao{
     background-color: #fafafa;
-    height: 350px;
+    height: 300px;
     width: 1050px;
     padding: 5px 15px;
     border-radius: 10px;
@@ -108,7 +107,8 @@
 }
 
 .produ_descricao p{
-    font-size: 20px;
+    font-size: 24px;
+    text-align: justify;
 }
 
 .arrow_left{

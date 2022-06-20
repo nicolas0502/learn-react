@@ -60,7 +60,7 @@ const Produto = () => {
             <div className="produto">
                 <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left"/>
                 <div className='info'>
-                    <div className='produ_imagem'>{hq.imagem}</div>
+                    <img className='produ_imagem' src={hq.imagem} alt="imagem do produto"/>
                     <div className='info_produ'>
                         <h1 className='produ_nome'>{hq.nome}</h1>
                         <div className='valor_parcela'> 

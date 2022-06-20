@@ -61,7 +61,7 @@ const FormHqs = ({hqs, setHqs}) => {
             <label>Nome: </label> <input ref={nomeRef} type="text" name="nome" /> <br/>
             <label>Valor: </label> <input ref={valorRef} type="number" name="valor" /> <br/>
             <label>Quantidade: </label> <input ref={quantidadeRef} type="number" name="quantidade" /><br/>
-            <label>Descrição: </label> <input ref={descricaoRef} type="text" name="descricao" /><br/>
+            <label>Descrição: </label> <textarea ref={descricaoRef} type="text" name="descricao" /><br/>
             <label>Imagem: </label> <input ref={imagemRef} type="text" name="imagem" />  <br/>
             <input type="submit" value="Cadastrar" className="botao_cadastro"/>
         </form>

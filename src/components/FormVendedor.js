@@ -1,13 +1,18 @@
 import "./FormVendedor.css"
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import ModalAlerts from "./ModalAlerts";
+
 
 const FormVendedor = () => {
 
     const navigate = useNavigate();
 
     const nomeRef = useRef();
+    const [modalShow, setModalShow] = useState(false);
+    const [message, setMessage] = useState("")
+    const [title, setTitle] = useState("")
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -31,16 +36,23 @@ const FormVendedor = () => {
           )
           .then((response) => response.json())
           .then((data) => {
-            nomeRef.current.focus()
-            alert(data.message);
             if(data?.vendedor){
-              navigate('/login-vendedor');
+              setTitle("Sucesso no cadastro!")              
+              setMessage(data.message)
+              setModalShow(true)
             } else if(data?.message){
-                alert(data.message)
+                setTitle("Erro no Cadastro!")
+                setMessage(data.message)
+                setModalShow(true)
             } else {
                 console.log(data)
             }
           });
+    }
+
+    function onHide(){
+      setModalShow(false)
+      navigate("/login-vendedor")
     }
 
     return (
@@ -59,6 +71,7 @@ const FormVendedor = () => {
                 <label htmlFor="cep">CEP:</label><input type="text" name="cep" maxLength={8} minLength={8}/>
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>
+            <ModalAlerts show={modalShow} message={message+". Agora Efetue o Login."} title={title} onHide={() => onHide()} />
         </div>
         
     )

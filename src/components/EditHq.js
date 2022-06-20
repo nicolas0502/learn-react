@@ -12,6 +12,8 @@ const EditHq= () => {
     const navigate = useNavigate();
     const {userLogged} = useAuth();
     const [modalShow, setModalShow] = useState(false);
+    const [message,setMessage] = useState("")
+    const [title,setTitle] = useState("")
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -39,9 +41,13 @@ const EditHq= () => {
             .then((response) => response.json())
             .then((data) => {
                 if(data?.hq?.id){
+                    setTitle("Sucesso na Edição!")
+                    setMessage("A sua HQ foi Editada com Sucesso")
                     setModalShow(true)
                 } else if(data?.message){
-                    alert(data.message)
+                    setTitle("Erro ao Edição!")
+                    setMessage(data.message)
+                    setModalShow(true)
                 } else {
                     console.log(data)
                 }
@@ -67,7 +73,7 @@ const EditHq= () => {
                     <label>Imagem: </label> <input type="text" name="imagem" defaultValue={hq.imagem}/>  <br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
-                <ModalAlerts show={modalShow} message="A sua HQ foi editada com sucesso" title="Sucesso na Edição" onHide={() => onHide()} />
+                <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
             </div>
             )
         : 

@@ -93,3 +93,13 @@
     font-size: 17px;
     font-weight: 500;
 }
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}

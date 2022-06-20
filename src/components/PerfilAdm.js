@@ -16,33 +16,37 @@ const PerfilAdm = () => {
     const navigate = useNavigate();
 
     const {setIsLogged, setUserLogged, userLogged} = useAuth();
-    const {userDados} = useUserDados()
+    const {userDados, isLoading} = useUserDados()
     const [modalShow, setModalShow] = useState(false);
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("")
+    let cpfFormat = ""
+    let telFormat = ""
 
     const logout = () => {
         setIsLogged(false)
         setUserLogged({})
         localStorage.removeItem('userLogged')
-        localStorage.removeItem('carrinhoItens')
         setTitle("Deslogado")
         setMessage("O usuário foi deslogado com sucesso")
         setModalShow(true)
     }
 
-    let cpfNoFormat = userDados.cpf
-    let cpfp1 = cpfNoFormat.substring(0,3)
-    let cpfp2 = cpfNoFormat.substring(3,6)
-    let cpfp3 = cpfNoFormat.substring(6,9)
-    let cpfp4 = cpfNoFormat.substring(9,11)
-    const cpfFormat = cpfp1 + "." + cpfp2 + "." + cpfp3 + "-" + cpfp4
+    if(!isLoading){
+        let cpfNoFormat = userDados.cpf
+        let cpfp1 = cpfNoFormat.substring(0,3)
+        let cpfp2 = cpfNoFormat.substring(3,6)
+        let cpfp3 = cpfNoFormat.substring(6,9)
+        let cpfp4 = cpfNoFormat.substring(9,11)
+        cpfFormat = cpfp1 + "." + cpfp2 + "." + cpfp3 + "-" + cpfp4
 
-    let telNoFormat = userDados.telefone
-    let telp1 = telNoFormat.substring(0,2)
-    let telp2 = telNoFormat.substring(2,7)
-    let telp3 = telNoFormat.substring(7,11)
-    const telFormat = "(" + telp1 + ")" + telp2 + "-" + telp3 
+        let telNoFormat = userDados.telefone
+        let telp1 = telNoFormat.substring(0,2)
+        let telp2 = telNoFormat.substring(2,7)
+        let telp3 = telNoFormat.substring(7,11)
+        telFormat = "(" + telp1 + ")" + telp2 + "-" + telp3
+    }
+     
 
     const onHide = () => {
         setModalShow(false)
@@ -52,7 +56,9 @@ const PerfilAdm = () => {
     
     return (
         <>
-        <div className="adm_card">
+        { isLoading ? (<p className="carregando">Loading...</p>) : (
+            <>
+            <div className="adm_card">
             <div className="info_adm">
                 <img src={FotoUsua} alt="Foto de perfil do administrador" className="foto_adm" />
                 <div className="informacoes">
@@ -67,14 +73,17 @@ const PerfilAdm = () => {
                 </div>
                 
             </div>
-        </div>    
-        <div className="produ_adc">
-            <h1>Produtos Adicionados</h1>
-            <CardHq />
-            <button className="buttonproduct" onClick={ () => {navigate("cadastra-hq")}}>Adicionar o Produto</button> 
-        </div>
-        <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
-    </>
+            </div>    
+            <div className="produ_adc">
+                <h1>Produtos Adicionados</h1>
+                <CardHq />
+                <button className="buttonproduct" onClick={ () => {navigate("cadastra-hq")}}>Adicionar o Produto</button> 
+            </div>
+            <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
+            </>
+        )}
+        </>
+        
     )
 }
 

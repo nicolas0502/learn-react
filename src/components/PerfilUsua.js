@@ -22,7 +22,6 @@ const PerfilUsua = () => {
         setIsLogged(false)
         setUserLogged({})
         localStorage.removeItem('userLogged')
-        localStorage.removeItem('carrinhoItens')
         setTitle("Deslogado")
         setMessage("O usuário foi deslogado com sucesso")
         setModalShow(true)

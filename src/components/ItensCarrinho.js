@@ -31,7 +31,7 @@ const ItensCarrinho = () => {
                         hqs.map((hq) => {
                             return(
                                 <div className='item-carrinho' key={hq.id}>
-                                    <div className='item-imagem'>{hq.imagem}</div>
+                                    <img className="item-imagem" src={hq.imagem} alt="imagem do produto"/>
                                     <div className='item-n-p'>
                                         <div className="item-nome">{hq.nome}</div>
                                         <div className='item-parcela'>Em 10x de R${((hq.valor / 10).toString().replace(".", ","))} sem juros</div>

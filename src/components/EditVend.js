@@ -10,7 +10,7 @@ const EditVend= () => {
 
     const navigate = useNavigate();
     const { userLogged } = useAuth();
-    const { userDados } = useUserDados();
+    const { userDados, setUserDados } = useUserDados();
     const [modalShow, setModalShow] = useState(false);
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("")
@@ -36,6 +36,7 @@ const EditVend= () => {
                     setModalShow(true);
                     setTitle("Sucesso ao Editar")
                     setMessage("Os Dados Foram Atualizados Com Sucesso!")
+                    setUserDados(data.cliente)
                 } else if(data?.message){
                     setModalShow(true);
                     setTitle("Erro ao Editar")

@@ -4,20 +4,27 @@ import { useState, useEffect, useContext, createContext } from "react";
 const UserContext = createContext();
 
 const UserProvider = ({children}) => {
-    const {userLogged} = useAuth();
+    const {userLogged, isLogged} = useAuth();
     const [userDados, setUserDados] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() =>{
-        fetch("http://localhost/LP2/api/"+userLogged.tipo+"/select-by-id/?id="+userLogged.id)
-        .then((response) => response.json())
-        .then((data) => setUserDados(data))
+        if(isLogged){
+            fetch("http://localhost/LP2/api/"+userLogged.tipo+"/select-by-id/?id="+userLogged.id)
+            .then((response) => response.json())
+            .then((data) => { 
+                setUserDados(data)
+                setIsLoading(false)
+            })
+        }
     
-    }, [userLogged.id, userLogged.tipo, userDados])
+    }, [userLogged.tipo, userLogged.id, isLogged])
 
     return (
 		<UserContext.Provider value={[
 			userDados,
-            setUserDados
+            setUserDados,
+            isLoading
 		]}>
 			{children}
 		</UserContext.Provider>
@@ -25,8 +32,8 @@ const UserProvider = ({children}) => {
 }
 
 export const useUserDados = () => {
-    const [userDados, setUserDados] = useContext(UserContext)
-    return {userDados, setUserDados}
+    const [userDados, setUserDados, isLoading] = useContext(UserContext)
+    return {userDados, setUserDados, isLoading}
  }
 
 export default UserProvider

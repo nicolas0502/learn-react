@@ -3,12 +3,17 @@ import Facebook from "../assets/icons/facebook.png"
 import Instagram from "../assets/icons/instagram.png"
 import Google from "../assets/icons/google.png"
 import { useNavigate } from "react-router-dom"
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
+import ModalAlerts from "./ModalAlerts";
 
 const FormUsuario = () => {
 
     const nomeRef = useRef();
+    const [modalShow, setModalShow] = useState(false);
+    const [message, setMessage] = useState("")
+    const [title, setTitle] = useState("")
+
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -32,18 +37,24 @@ const FormUsuario = () => {
           )
           .then((response) => response.json())
           .then((data) => {
-            nomeRef.current.focus()
-            alert(data.message)
             if(data?.cliente){
-                navigate('/login-usuario');
+                setTitle("Sucesso no cadastro!")              
+                setMessage(data.message)
+                setModalShow(true)
             } else if(data?.message){
-                alert(data.message)
+                setTitle("Erro no Cadastro!")
+                setMessage(data.message)
+                setModalShow(true)
             } else {
                 console.log(data)
             }
           });
     }
 
+    function onHide(){
+        setModalShow(false)
+        navigate("/login-usuario")
+      }
 
 
     return (
@@ -74,6 +85,7 @@ const FormUsuario = () => {
                 <label htmlFor="senha">Senha:</label><input type="password" name="senha"/>
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>
+            <ModalAlerts show={modalShow} message={message+". Agora Efetue o Login."} title={title} onHide={() => onHide()} />
         </div>
         
     )
