@@ -15,7 +15,6 @@ const FormUsuario = () => {
     const [title, setTitle] = useState("")
     const [nav, setNav] = useState("")
 
-
     useEffect(() => {
       nomeRef.current.focus()
     })
@@ -39,7 +38,7 @@ const FormUsuario = () => {
           .then((response) => response.json())
           .then((data) => {
             if(data?.cliente){
-                setTitle("Sucesso no cadastro!")              
+                setTitle("Sucesso No Cadastro!")              
                 setMessage(data.message)
                 setModalShow(true)
                 setNav("/login-usuario")
@@ -48,8 +47,6 @@ const FormUsuario = () => {
                 setMessage(data.message)
                 setModalShow(true)
                 setNav("")
-            } else {
-                console.log(data)
             }
           });
     }

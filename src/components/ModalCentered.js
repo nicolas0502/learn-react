@@ -4,6 +4,7 @@ import { useAuth } from '../providers/AuthProvider'
 function ModalCetered(props) {
 
   const {userLogged} = useAuth();
+  const {excluir, hqs, sethqs, onHide, show} = props
 
   const handleTrashClick = (hqId) => {
     const formData = new FormData();
@@ -17,16 +18,16 @@ function ModalCetered(props) {
       .then((response) => response.json())
       .then((data) => {
         props.onHide()
-        let hqFiltered = props.hqs.filter((hq) =>{ 
+        let hqFiltered = hqs.filter((hq) =>{ 
           return hq.id !== hqId;
         });
-        props.sethqs(hqFiltered)
+        sethqs(hqFiltered)
       });
     }
 
     return (
       <Modal
-        {...props}
+        show= {show}
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -42,8 +43,8 @@ function ModalCetered(props) {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>Cancelar</Button>
-          <Button variant="danger" onClick={() => {handleTrashClick(props.excluir)}}>Excluir</Button>
+          <Button variant="secondary" onClick={onHide}>Cancelar</Button>
+          <Button variant="danger" onClick={() => {handleTrashClick(excluir)}}>Excluir</Button>
         </Modal.Footer>
       </Modal>
     );

@@ -38,7 +38,7 @@ const FormVendedor = () => {
           .then((response) => response.json())
           .then((data) => {
             if(data?.vendedor){
-              setTitle("Sucesso no cadastro!")              
+              setTitle("Sucesso No Cadastro!")              
               setMessage(data.message)
               setModalShow(true)
               setNav("/login-vendedor")
@@ -47,8 +47,6 @@ const FormVendedor = () => {
                 setMessage(data.message)
                 setModalShow(true)
                 setNav("")
-            } else {
-                console.log(data)
             }
           });
     }

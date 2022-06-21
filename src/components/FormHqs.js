@@ -15,6 +15,8 @@ const FormHqs = ({hqs, setHqs}) => {
     const imagemRef = useRef();
     const {userLogged} = useAuth();
     const [modalShow, setModalShow] = useState(false);
+    const [message, setMessage] = useState("")
+    const [title, setTitle] = useState("")
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -41,15 +43,22 @@ const FormHqs = ({hqs, setHqs}) => {
         )
         .then((response) => response.json())
         .then((data) => {
-          setModalShow(true)
-          nomeRef.current.value = ''
-          valorRef.current.value = ''
-          quantidadeRef.current.value = ''
-          descricaoRef.current.value = ''
-          imagemRef.current.value = ''
-          nomeRef.current.focus()
-          setHqs([ data.hq , ...hqs])
-          console.log(data)
+          if(data?.hq){
+            setTitle("Sucesso No Cadastro!")              
+            setMessage(data.message)
+            setModalShow(true)
+            nomeRef.current.value = ''
+            valorRef.current.value = ''
+            quantidadeRef.current.value = ''
+            descricaoRef.current.value = ''
+            imagemRef.current.value = ''
+            nomeRef.current.focus()
+            setHqs([ data.hq , ...hqs])
+          }else if(data?.message){
+            setTitle("Erro no Cadastro!")
+            setMessage(data.message)
+            setModalShow(true)
+          }
         });
     } 
 
@@ -65,7 +74,7 @@ const FormHqs = ({hqs, setHqs}) => {
             <label>Imagem: </label> <input ref={imagemRef} type="text" name="imagem" />  <br/>
             <input type="submit" value="Cadastrar" className="botao_cadastro"/>
         </form>
-        <ModalAlerts show={modalShow} message="A sua hq foi cadastrada com sucesso" title="Sucesso no cadastro" onHide={() => setModalShow(false)} />
+        <ModalAlerts show={modalShow} message={message} title={title} onHide={() => setModalShow(false)} />
       </div>
     )
 }

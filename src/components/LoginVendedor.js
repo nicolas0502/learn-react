@@ -27,6 +27,7 @@ const LoginVendedor = () => {
     const formData = new FormData();
     formData.append('email', event.target[0].value);
     formData.append('senha', event.target[1].value);
+    formData.append('tipo',"vendedor")
     fetch(
       "http://localhost/LP2/api/auth/login",
       {method: 'POST', body: formData}
@@ -38,14 +39,15 @@ const LoginVendedor = () => {
                 setUserLogged(data.session)
                 localStorage.setItem('userLogged', JSON.stringify(data.session));
                 setModalShow(true)
-                setMessage("O Usuário Foi Logado Com Sucesso")
-                setTitle("Sucesso ao Logar")
+                setMessage(data.message)
+                setTitle("Sucesso ao Logar!")
                 setNav("/")
             } else {
                 let data = await response.json()
                 setModalShow(true)
                 setMessage(data.message)
-                setTitle("Erro ao Logar")
+                setTitle("Erro ao Logar!")
+                setNav("")
             }
       })
   } 

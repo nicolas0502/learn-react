@@ -14,6 +14,7 @@ const EditHq= () => {
     const [modalShow, setModalShow] = useState(false);
     const [message,setMessage] = useState("")
     const [title,setTitle] = useState("")
+    const [nav, setNav] = useState("")
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -42,12 +43,14 @@ const EditHq= () => {
             .then((data) => {
                 if(data?.hq?.id){
                     setTitle("Sucesso na Edição!")
-                    setMessage("A sua HQ foi Editada com Sucesso")
+                    setMessage(data.message)
                     setModalShow(true)
+                    setNav("../")
                 } else if(data?.message){
                     setTitle("Erro ao Edição!")
                     setMessage(data.message)
                     setModalShow(true)
+                    setNav("")
                 } else {
                     console.log(data)
                 }
@@ -56,7 +59,7 @@ const EditHq= () => {
 
     const onHide = () => {
         setModalShow(false)
-        navigate("../")
+        navigate(nav)
     }
   
     return (
@@ -69,7 +72,7 @@ const EditHq= () => {
                     <label>Nome: </label> <input type="text" name="nome" defaultValue={hq.nome}/> <br/>
                     <label>Valor: </label> <input type="number" name="valor" defaultValue={hq.valor} /> <br/>
                     <label>Quantidade: </label> <input type="number" name="quantidade" defaultValue={hq.quantidade}/><br/>
-                    <label>Descrição: </label> <input type="text" name="descricao" defaultValue={hq.descricao}/><br/>
+                    <label>Descrição: </label> <textarea type="text" name="descricao" defaultValue={hq.descricao}/><br/>
                     <label>Imagem: </label> <input type="text" name="imagem" defaultValue={hq.imagem}/>  <br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>

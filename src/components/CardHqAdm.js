@@ -12,6 +12,7 @@ const EditarHq = () => {
     const [hqs, setHqs] = useState(null)
     const navigate = useNavigate();
     const {userLogged} = useAuth();
+    const [idToDelete, setIdToDelete] = useState(0)
 
     useEffect(() =>{
         fetch("http://localhost/LP2/api/hq/select-hq-by-vendedor/?id="+userLogged.id)
@@ -19,6 +20,11 @@ const EditarHq = () => {
         .then((data) => setHqs(data))
     
     }, [userLogged.id])
+
+    const handleDelete = (id) => {
+      setIdToDelete(id)
+      setModalShow(true)
+    } 
 
     return (
         <>
@@ -35,14 +41,7 @@ const EditarHq = () => {
                       <p className="preco">R$ {((hq.valor).toString().replace(".", ","))}</p>
                       <div className="icons">
                         <div className="trash1">
-                        <ModalCentered
-                          show={modalShow}
-                          onHide={() => setModalShow(false)}
-                          excluir={hq.id}
-                          sethqs={setHqs}
-                          hqs={hqs}
-                        />
-                          <IconTrash onClick={() => setModalShow(true)} className="icontrash"/>
+                          <IconTrash onClick={() => handleDelete(hq.id)} className="icontrash"/>
                         </div>
                         <div className="edit1">
                           <EditHq className="edithq" onClick={() => navigate('edit/'+hq.id)} />
@@ -54,6 +53,13 @@ const EditarHq = () => {
                 )
             })
         }
+        <ModalCentered
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          excluir = {idToDelete}
+          sethqs={setHqs}
+          hqs={hqs}
+        />
         </div>
         </>
     )

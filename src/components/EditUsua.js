@@ -11,11 +11,11 @@ const EditUsua= () => {
 
     const navigate = useNavigate();
     const { userLogged } = useAuth();
-    const { userDados } = useUserDados();
+    const { userDados, setUserDados } = useUserDados();
     const [modalShow, setModalShow] = useState(false);
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("");
-
+    const [nav, setNav] = useState("")
   
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -34,19 +34,22 @@ const EditUsua= () => {
             .then((data) => {
                 if(data?.cliente?.id){
                     setModalShow(true);
-                    setTitle("Sucesso ao Editar")
-                    setMessage("Os Dados Foram Atualizados Com Sucesso!")
+                    setTitle("Sucesso Na Edição!")
+                    setMessage(data.message)
+                    setUserDados(data.cliente)
+                    setNav("/perfil-usuario")
                 } else if(data?.message){
                     setModalShow(true);
                     setTitle("Erro ao Editar")
                     setMessage("Ocorreu um Erro ao Editar os Dados!")
+                    setNav("")
                 }
             })
     } 
 
     const onHide = () => {
         setModalShow(false)
-        navigate("/perfil-usuario")
+        navigate(nav)
     }
   
     return (

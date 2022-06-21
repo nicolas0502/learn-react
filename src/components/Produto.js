@@ -28,19 +28,19 @@ const Produto = () => {
         if(isLogged) {
             if(idItens.includes(id)){
                 setModalShow(true)
-                setTitle("Erro Ao Adicionar Produto")
-                setMessage("O Produto Já Está Adicionado Ao Carrinho")
+                setTitle("Erro Ao Adicionar Produto!")
+                setMessage("O Produto Já Está Adicionado Ao Carrinho!")
             }else{
                 setIdItens([...idItens, id])
                 saveCarrinhoLocalStorage([...idItens, id])
                 setModalShow(true)
-                setTitle("Adicionado Com Sucesso")
-                setMessage("O Produto Foi Adicionado Ao Carrinho")
+                setTitle("Adicionado Com Sucesso!")
+                setMessage("O Produto Foi Adicionado Ao Carrinho!")
             }
         } else {
             setModalShow(true)
-            setTitle("Erro Ao Adicionar Produto")
-            setMessage("Você Precisa Estar Logado Para Adicionar Um Item Ao Carrinho")
+            setTitle("Erro Ao Adicionar Produto!")
+            setMessage("Você Precisa Estar Logado Para Adicionar Um Item Ao Carrinho!")
         }       
     }
 
@@ -49,8 +49,8 @@ const Produto = () => {
             navigate("/pagamento")
         } else {
             setModalShow(true)
-            setTitle("Erro Para Ir Ao Pagamento")
-            setMessage("Você Precisa Estar Logado Para Ir Ao Pagamento")
+            setTitle("Erro Para Ir Ao Pagamento!")
+            setMessage("Você Precisa Estar Logado Para Ir Ao Pagamento!")
         }
     }
 

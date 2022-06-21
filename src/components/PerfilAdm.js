@@ -8,8 +8,7 @@ import { useAuth } from '../providers/AuthProvider'
 import { useUserDados } from "../providers/UserProvider"
 import ModalAlerts from "./ModalAlerts"
 import { useState } from "react"
-
-
+import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 
 const PerfilAdm = () => {
 
@@ -24,12 +23,27 @@ const PerfilAdm = () => {
     let telFormat = ""
 
     const logout = () => {
-        setIsLogged(false)
-        setUserLogged({})
-        localStorage.removeItem('userLogged')
-        setTitle("Deslogado")
-        setMessage("O usuário foi deslogado com sucesso")
-        setModalShow(true)
+        const formData = new FormData();
+        formData.append('token', userLogged.token)
+        fetch(
+            "http://localhost/LP2/api/auth/logout",
+            {method: 'POST', body: formData}
+          )
+          .then(async (response) => {
+            if(response.status === 200){
+                let data = await response.json()
+                setIsLogged(false)
+                setUserLogged({})
+                localStorage.removeItem('userLogged')
+                setModalShow(true)
+                setMessage(data.message)
+                setTitle("Sessão Encerrada!")
+            } else {
+                setModalShow(true)
+                setMessage("Não Foi Possivel Deslogar!")
+                setTitle("Erro ao Delogar!")
+            }
+        })
     }
 
     if(!isLoading){
@@ -58,6 +72,7 @@ const PerfilAdm = () => {
         <>
         { isLoading ? (<p className="carregando">Loading...</p>) : (
             <>
+            <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left_produto"/>
             <div className="adm_card">
             <div className="info_adm">
                 <img src={FotoUsua} alt="Foto de perfil do administrador" className="foto_adm" />

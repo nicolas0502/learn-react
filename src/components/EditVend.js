@@ -14,6 +14,7 @@ const EditVend= () => {
     const [modalShow, setModalShow] = useState(false);
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("")
+    const [nav, setNav] = useState("")
   
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -32,22 +33,24 @@ const EditVend= () => {
             )
             .then((response) => response.json())
             .then((data) => {
-                if(data?.cliente?.id){
+                if(data?.vendedor?.id){
                     setModalShow(true);
-                    setTitle("Sucesso ao Editar")
-                    setMessage("Os Dados Foram Atualizados Com Sucesso!")
-                    setUserDados(data.cliente)
+                    setTitle("Sucesso Na Edição!")
+                    setMessage(data.message)
+                    setUserDados(data.vendedor)
+                    setNav("/perfil-vendedor")
                 } else if(data?.message){
                     setModalShow(true);
                     setTitle("Erro ao Editar")
                     setMessage("Ocorreu um Erro ao Editar os Dados!")
+                    setNav("")
                 }
             })
     } 
 
     const onHide = () => {
         setModalShow(false)
-        navigate("/perfil-vendedor")
+        navigate(nav)
     }
   
     return (
