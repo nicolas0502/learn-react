@@ -13,6 +13,7 @@ const FormVendedor = () => {
     const [modalShow, setModalShow] = useState(false);
     const [message, setMessage] = useState("")
     const [title, setTitle] = useState("")
+    const [nav, setNav] = useState("")
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -40,10 +41,12 @@ const FormVendedor = () => {
               setTitle("Sucesso no cadastro!")              
               setMessage(data.message)
               setModalShow(true)
+              setNav("/login-vendedor")
             } else if(data?.message){
                 setTitle("Erro no Cadastro!")
                 setMessage(data.message)
                 setModalShow(true)
+                setNav("")
             } else {
                 console.log(data)
             }
@@ -52,7 +55,7 @@ const FormVendedor = () => {
 
     function onHide(){
       setModalShow(false)
-      navigate("/login-vendedor")
+      navigate(nav)
     }
 
     return (
