@@ -67,12 +67,15 @@ const PerfilAdm = () => {
         navigate('/')
     }
 
+    function goBack() {
+        window.history.back()
+    }
     
     return (
         <>
         { isLoading ? (<p className="carregando">Loading...</p>) : (
             <>
-            <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left_produto"/>
+            <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
             <div className="adm_card">
             <div className="info_adm">
                 <img src={FotoUsua} alt="Foto de perfil do administrador" className="foto_adm" />

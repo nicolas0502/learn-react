@@ -54,12 +54,15 @@ const FormUsuario = () => {
     function onHide(){
         setModalShow(false)
         navigate(nav)
-      }
+    }
 
+    function goBack() {
+        window.history.back()
+    }
 
     return (
         <div className="usuario_form">
-            <ArrowLeft onClick={() => {navigate("/cadastro-usuario-ou-vendedor")}} className="arrow_left_produto"/>
+            <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
             <form onSubmit={(event) => handleSubmit(event)} className="form_usuario">
                 <h1>Cadastrar cliente</h1>
                 <div className="iconss">

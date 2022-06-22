@@ -47,6 +47,7 @@
     margin-left: auto;
     margin-right: auto;
     resize: none;
+    text-align: justify;
 }
 
 input[name="imagem"]{

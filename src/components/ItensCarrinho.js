@@ -22,10 +22,15 @@ const ItensCarrinho = () => {
         }
     }, [quantItens]);
 
+    function goBack() {
+        window.history.back()
+    }
+
     function CardItens(){
         if(quantItens !== 0){
             return(
                 <>
+                <ArrowLeft onClick={() => {goBack()}} className="arrow-left"/>
                 <div className='iteem'>
                     {hqs &&
                         hqs.map((hq) => {

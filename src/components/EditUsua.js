@@ -51,12 +51,16 @@ const EditUsua= () => {
         setModalShow(false)
         navigate(nav)
     }
+
+    function goBack() {
+        window.history.back()
+    }
   
     return (
         <>
         {userLogged ? (
             <div className="hq_edit">
-                <ArrowLeft onClick={() => {navigate("/perfil-usuario")}} className="arrow_left_produto"/>
+                <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
                 <form onSubmit={(event) => handleSubmit(event)} className="edit_hq">
                     <h1>Editar Perfil</h1>
                     <label>Nome: </label> <input type="text" name="nome" defaultValue={userDados.nome}/> <br/>

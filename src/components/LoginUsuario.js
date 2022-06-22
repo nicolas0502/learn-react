@@ -56,14 +56,18 @@ const LoginUsuario = () => {
         })
 } 
 
-  const onHide = () => {
-    setModalShow(false)
-    navigate(nav)
-  }
+    const onHide = () => {
+      setModalShow(false)
+      navigate(nav)
+    }
+
+    function goBack() {
+      window.history.back()
+    }
 
   return (
     <div className="login_usua">
-        <ArrowLeft onClick={() => {navigate("/login-usuario-ou-vendedor")}} className="arrow_left_produto"/>
+        <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
         <div className="left_usua">
             <h1>Fazer Login</h1>
             <div className="iconsss">

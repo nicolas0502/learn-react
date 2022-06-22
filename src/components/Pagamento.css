@@ -28,6 +28,9 @@
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    padding: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.589);
 }
 
 .form_pagamento input[type="email"]{
@@ -35,6 +38,9 @@
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.589);
+    padding: 3px;
 }
 
 .form_pagamento input[type="password"]{
@@ -42,6 +48,9 @@
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.589);
+    padding: 3px;
 }
 
 .form_pagamento input[type="number"]{
@@ -49,6 +58,9 @@
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.589);
+    padding: 3px;
 }
 
 .pag{
@@ -92,4 +104,12 @@
     font-size: 15px;
     width: 200px !important;
     height: 35px;
+}
+
+.arrow-left{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-top:10px;
+    margin-left: 20px;
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import "./FormHqs.css"
 import { useAuth } from '../providers/AuthProvider';
@@ -21,8 +20,6 @@ const FormHqs = ({hqs, setHqs}) => {
     useEffect(() => {
       nomeRef.current.focus()
     })
-
-    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
       event.preventDefault()
@@ -62,9 +59,13 @@ const FormHqs = ({hqs, setHqs}) => {
         });
     } 
 
+    function goBack() {
+      window.history.back()
+  }
+
     return(
       <div className="hq_form">
-        <ArrowLeft onClick={() => {navigate("../")}} className="arrow_left_produto"/>
+        <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
         <form onSubmit={(event) => handleSubmit(event)} className="form_hq">
             <h1>Cadastro de Produto</h1>
             <label>Nome: </label> <input ref={nomeRef} type="text" name="nome" /> <br/>

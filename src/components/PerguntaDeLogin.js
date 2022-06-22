@@ -2,15 +2,16 @@ import "./PerguntaDeLogin.css"
 import Usua from "../assets/icons/usua.svg"
 import { Link } from "react-router-dom"
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
-import { useNavigate } from 'react-router-dom'
 
 const PerguntaDeLogin = () => {
 
-    const navigate = useNavigate();
+    function goBack() {
+        window.history.back()
+    }
 
     return (
         <>
-        <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left_produto"/>
+        <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
         <div className="card_pergunta">
             <h1>Você é um Vendedor ou um Usuário?</h1>
             <div className="respostas">

@@ -11,6 +11,7 @@
     padding: 0 2px;
     width: 20%;
     min-height: 350px;
+    max-height: 370px;
     border-radius: 10px;
     border: 1px solid #000;
     text-align: center;
@@ -30,6 +31,7 @@
     padding: 0 2px;
     width: 20%;
     min-height: 350px;
+    max-height: 380px;
     border-radius: 10px;
     border: 1px solid #000;
     text-align: center;
@@ -52,18 +54,17 @@
     min-height: 200px;
 }
 
-.api h1{
+.card-tittle h1{
     font-size: 23px;
     margin: 0;
     padding: 0;
     font-weight: 500;
-}
-
-.api1 h1{
-    font-size: 23px;
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
+    width: 200px;
+    max-height: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 }
 
 .preco{
@@ -125,7 +126,9 @@
     margin-bottom: 10px;
     border-radius: 10px;
     border: 1px solid rgba(90, 90, 90, 0.527);
-    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 250px;;
     max-height: 250px;
 }
 

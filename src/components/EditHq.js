@@ -61,12 +61,16 @@ const EditHq= () => {
         setModalShow(false)
         navigate(nav)
     }
+
+    function goBack() {
+        window.history.back()
+    }
   
     return (
         <>
         {hq ? (
             <div className="hq_edit">
-                <ArrowLeft onClick={() => {navigate("../")}} className="arrow_left_produto"/>
+                <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
                 <form onSubmit={(event) => handleSubmit(event)} className="edit_hq">
                     <h1>Editar Produto</h1>
                     <label>Nome: </label> <input type="text" name="nome" defaultValue={hq.nome}/> <br/>

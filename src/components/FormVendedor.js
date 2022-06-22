@@ -56,9 +56,13 @@ const FormVendedor = () => {
       navigate(nav)
     }
 
+    function goBack() {
+      window.history.back()
+  }
+
     return (
         <div className="vendedor_form">
-            <ArrowLeft onClick={() => {navigate("/cadastro-usuario-ou-vendedor")}} className="arrow_left_produto"/>
+            <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
             <form onSubmit={(event) => handleSubmit(event)} className="form_vendedor">
                 <h1>Cadastrar Vendedor</h1>
                 <label htmlFor="nome">Nome:</label><input type="text" name="nome" ref={nomeRef}/>

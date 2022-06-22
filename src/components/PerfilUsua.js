@@ -64,11 +64,15 @@ const PerfilUsua = () => {
         navigate('/')
     }
 
+    function goBack() {
+        window.history.back()
+    }
+
     return (
         <>
         { isLoading ? (<p className="carregando">Loading...</p>) : (
             <>
-            <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left_produto"/>
+            <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
             <div className="usua_card">
                 <div className="info_usua">
                     <img src={FotoUsua} alt="Foto de Usuario" className="foto_usua" />

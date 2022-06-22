@@ -54,6 +54,7 @@
 }  
 
 .produ_nome{
+    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -95,8 +96,10 @@
 
 .produ_descricao{
     background-color: #fafafa;
-    height: 300px;
-    width: 1050px;
+    min-height: 300px;
+    max-height: auto;
+    min-width: auto;
+    max-width: 1050px;
     padding: 5px 15px;
     border-radius: 10px;
     border: 1px solid black;
@@ -108,11 +111,14 @@
 
 .produ_descricao p{
     font-size: 24px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     text-align: justify;
 }
 
 .arrow_left{
     width: 30px;
     height: 30px;
-    position: relative;
+    position: absolute;
 }

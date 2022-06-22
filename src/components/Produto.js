@@ -14,6 +14,10 @@ const Produto = () => {
     const [modalShow, setModalShow] = useState(false);
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("")
+    
+    function goBack() {
+        window.history.back()
+    }
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -58,7 +62,7 @@ const Produto = () => {
     <>
         {hq ? (
             <div className="produto">
-                <ArrowLeft onClick={() => {navigate("/")}} className="arrow_left"/>
+                <ArrowLeft onClick={() => {goBack()}} className="arrow_left"/>
                 <div className='info'>
                     <img className='produ_imagem' src={hq.imagem} alt="imagem do produto"/>
                     <div className='info_produ'>

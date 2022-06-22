@@ -56,10 +56,14 @@ const LoginVendedor = () => {
     setModalShow(false)
     navigate(nav)
   }
+
+  function goBack() {
+    window.history.back()
+}
   
   return (
   <div className="login_vend">
-      <ArrowLeft onClick={() => {navigate("/login-usuario-ou-vendedor")}} className="arrow_left_produto"/>
+      <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
       <div className="left_vend">
         <h1>Fazer Login</h1>
         <form className="form_login_usua" onSubmit={(event) => handleSubmit(event)}>
