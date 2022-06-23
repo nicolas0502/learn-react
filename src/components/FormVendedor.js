@@ -18,7 +18,7 @@ const FormVendedor = () => {
 
     useEffect(() => {
       nomeRef.current.focus()
-    })
+    }, [nomeRef])
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -60,6 +60,7 @@ const FormVendedor = () => {
     function goBack() {
       window.history.back()
     }
+    
     const Ocult = () => {
       if(senha === "password"){
           return(

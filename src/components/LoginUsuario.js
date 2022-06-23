@@ -8,6 +8,7 @@ import { useRef, useEffect } from "react";
 import { useAuth } from "../providers/AuthProvider";
 import { useState } from "react";
 import ModalAlerts from "./ModalAlerts";
+import {FaEyeSlash, FaEye} from "react-icons/fa"
 
 const LoginUsuario = () => {
 
@@ -20,11 +21,12 @@ const LoginUsuario = () => {
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
   const [nav, setNav] = useState("");
+  const [senha, setSenha] = useState("password")
 
 
   useEffect(() => {
     emailRef.current.focus()
-  })
+  }, [emailRef])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -54,7 +56,7 @@ const LoginUsuario = () => {
                 setNav("")
             }
         })
-} 
+  } 
 
     const onHide = () => {
       setModalShow(false)
@@ -63,6 +65,26 @@ const LoginUsuario = () => {
 
     function goBack() {
       window.history.back()
+    }
+
+    const Ocult = () => {
+      if(senha === "password"){
+          return(
+              <FaEye onClick={() => {ocultarSenha()}} className="oculta-senha"></FaEye>
+          )
+      }else{
+          return(
+              <FaEyeSlash onClick={() => {ocultarSenha()}} className="oculta-senha"></FaEyeSlash>
+          )
+      }
+    }
+  
+    const ocultarSenha = () => {
+        if(senha === "password"){
+            setSenha("text")
+        }else{
+            setSenha("password")
+        }
     }
 
   return (
@@ -86,7 +108,7 @@ const LoginUsuario = () => {
             </div>
             <form className="form_login_usua" onSubmit={(event) => handleSubmit(event)}>
               <label for="email">Email:</label><input type="email" name="email" ref={emailRef}/>
-              <label for="senha">Senha:</label><input type="password" name="senha" ref={senhaRef}/>
+              <label for="senha">Senha:</label>{Ocult()}<input type={senha} name="senha" ref={senhaRef}/>
               <input type="submit" value="Entrar" className="botao_cadastro"/>
             </form>
         </div>
