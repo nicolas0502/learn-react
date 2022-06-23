@@ -13,7 +13,7 @@ const PerguntaDeLogin = () => {
         <>
         <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
         <div className="card_pergunta">
-            <h1>Você é um Vendedor ou um Usuário?</h1>
+            <h1>Você é Um Vendedor Ou Um Cliente?</h1>
             <div className="respostas">
                 <div className="op_vend"> 
                     <div className="resposta">
@@ -25,9 +25,9 @@ const PerguntaDeLogin = () => {
                 <div className="op_usua">
                     <div className="resposta">
                         <img src={Usua} alt="imagem do usuario"/>
-                        <h2>Usuário</h2>
+                        <h2>Cliente</h2>
                     </div>
-                    <Link to="/login-usuario">Entrar como Usuário</Link>
+                    <Link to="/login-usuario">Entrar como Cliente</Link>
                 </div>
             </div>
         </div>

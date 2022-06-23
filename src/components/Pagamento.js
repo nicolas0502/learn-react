@@ -22,8 +22,8 @@ const Pagamento = () => {
                 <label htmlFor="nome" className='pag'>Nome:</label><input type="text" name="nome" defaultValue={userDados.nome}/>
                 <label htmlFor="sobrenome" className='pag'>Sobrenome:</label><input type="text" name="sobrenome" defaultValue={userDados.sobrenome}/>
                 <label htmlFor="email" className='pag'>Email:</label><input type="email" name="email" defaultValue={userLogged.email}/>
-                <label htmlFor="cpf" className='pag'>CPF:</label><input type="text" name="cpf" defaultValue={userDados.cpf}/>
-                <label htmlFor="telefone" className='pag'>Telefone:</label><input type="text" name="telefone" defaultValue={userDados.telefone}/>
+                <label htmlFor="cpf" className='pag'>CPF:</label><input type="number" name="cpf" defaultValue={userDados.cpf}/>
+                <label htmlFor="telefone" className='pag'>Telefone:</label><input type="number" name="telefone" defaultValue={userDados.telefone}/>
                 <p>Selecione a forma de Pagamento:</p>
                 <div className='met_pag'>
                     <div className='PIX'>
@@ -39,7 +39,7 @@ const Pagamento = () => {
                         <label htmlFor="boleto">Boleto</label>
                     </div>
                 </div>
-                <label htmlFor="cep" className='pag'>CEP:</label><input type="text" name="cep"/>
+                <label htmlFor="cep" className='pag'>CEP:</label><input type="number" name="cep"/>
                 <label htmlFor="cidade" className='pag'>Cidade:</label><input type="text" name="cidade"/>
                 <label htmlFor="estado" className='pag'>Estado:</label><input type="text" name="estado"/>
                 <label htmlFor="rua" className='pag'>Rua:</label><input type="text" name="rua"/>
