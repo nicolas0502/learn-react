@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import { useRef, useEffect, useState } from "react";
 import ModalAlerts from "./ModalAlerts";
-
+import {FaEyeSlash, FaEye} from "react-icons/fa"
 
 const FormVendedor = () => {
 
@@ -14,6 +14,7 @@ const FormVendedor = () => {
     const [message, setMessage] = useState("")
     const [title, setTitle] = useState("")
     const [nav, setNav] = useState("")
+    const [senha, setSenha] = useState("password")
 
     useEffect(() => {
       nomeRef.current.focus()
@@ -58,7 +59,26 @@ const FormVendedor = () => {
 
     function goBack() {
       window.history.back()
-  }
+    }
+    const Ocult = () => {
+      if(senha === "password"){
+          return(
+              <FaEye onClick={() => {ocultarSenha()}} className="ocultar-senha"></FaEye>
+          )
+      }else{
+          return(
+              <FaEyeSlash onClick={() => {ocultarSenha()}} className="ocultar-senha"></FaEyeSlash>
+          )
+      }
+    }
+
+    const ocultarSenha = () => {
+        if(senha === "password"){
+            setSenha("text")
+        }else{
+            setSenha("password")
+        }
+    }
 
     return (
         <div className="vendedor_form">
@@ -72,7 +92,7 @@ const FormVendedor = () => {
                 <label htmlFor="cpf">CPF:</label><input type="number" name="cpf" maxLength={11} minLength={11} />
                 <label htmlFor="rg">RG:</label><input type="number" name="rg" maxLength={9} minLength={9}/>
                 <label htmlFor="nascimento">Data de Nascimento:</label><input type="date" name="nascimento"/>
-                <label htmlFor="senha">Senha:</label><input type="password" name="senha"/>
+                <label htmlFor="senha">Senha:</label>{Ocult()}<input type={senha} name="senha" className="senhazinha"/>
                 <label htmlFor="cep">CEP:</label><input type="number" name="cep" maxLength={8} minLength={8}/>
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>

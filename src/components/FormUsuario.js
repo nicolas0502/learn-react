@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { useRef, useEffect, useState } from "react";
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
 import ModalAlerts from "./ModalAlerts";
+import {FaEyeSlash, FaEye} from "react-icons/fa"
 
 const FormUsuario = () => {
 
@@ -14,10 +15,11 @@ const FormUsuario = () => {
     const [message, setMessage] = useState("")
     const [title, setTitle] = useState("")
     const [nav, setNav] = useState("")
+    const [senha, setSenha] = useState("password")
 
     useEffect(() => {
       nomeRef.current.focus()
-    })
+    }, [nomeRef])
 
     const navigate = useNavigate()
 
@@ -60,6 +62,26 @@ const FormUsuario = () => {
         window.history.back()
     }
 
+    const Ocult = () => {
+        if(senha === "password"){
+            return(
+                <FaEye onClick={() => {ocultarSenha()}} className="ocultar_senha"></FaEye>
+            )
+        }else{
+            return(
+                <FaEyeSlash onClick={() => {ocultarSenha()}} className="ocultar_senha"></FaEyeSlash>
+            )
+        }
+    }
+
+    const ocultarSenha = () => {
+        if(senha === "password"){
+            setSenha("text")
+        }else{
+            setSenha("password")
+        }
+    }
+
     return (
         <div className="usuario_form">
             <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
@@ -85,7 +107,7 @@ const FormUsuario = () => {
                 <label htmlFor="telefone">Telefone:</label><input type="number" name="telefone" maxLength={11} minLength={11}/>
                 <label htmlFor="cpf">CPF:</label><input type="number" name="cpf" maxLength={11} minLength={11}/>
                 <label htmlFor="nascimento">Data de Nascimento:</label><input type="date" name="nascimento"/>
-                <label htmlFor="senha">Senha:</label><input type="password" name="senha"/>
+                <label htmlFor="senha">Senha:</label>{Ocult()}<input type={senha} name="senha" className="senhazinha"/> 
                 <input type="submit" value="Cadastrar" className="botao_cadastro"/>
             </form>
             <ModalAlerts show={modalShow} message={message+". Agora Efetue o Login."} title={title} onHide={() => onHide()} />

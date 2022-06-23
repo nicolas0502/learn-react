@@ -7,6 +7,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 15px;
+    position: relative;
 }
 
 .vendedor_form{
@@ -56,4 +57,12 @@ input[type=number] {
    -moz-appearance: textfield;
    appearance: textfield;
 
+}
+
+.ocultar-senha{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    bottom: 176px;
+    right: 60px;
 }
