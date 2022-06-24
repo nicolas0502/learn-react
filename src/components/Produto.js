@@ -89,7 +89,7 @@ const Produto = () => {
             </div>
             )
         : 
-            (<p>Hq não encontrado!</p>)
+            (<p>Loading...</p>)
         }
         </>
   )

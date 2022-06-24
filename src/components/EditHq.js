@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import "./EditHq.css"
 import { useAuth } from '../providers/AuthProvider';
 import { HiOutlineArrowNarrowLeft as ArrowLeft } from "react-icons/hi";
@@ -9,12 +9,11 @@ const EditHq= () => {
 
     const { hqId } = useParams();
     const [hq, setHq] = useState();
-    const navigate = useNavigate();
     const {userLogged} = useAuth();
     const [modalShow, setModalShow] = useState(false);
     const [message,setMessage] = useState("")
     const [title,setTitle] = useState("")
-    const [nav, setNav] = useState("")
+    const [value, setValue] = useState(0)
 
     useEffect(() => {
         fetch("http://localhost/LP2/api/hq/select-by-id/?id="+hqId)
@@ -42,28 +41,28 @@ const EditHq= () => {
             .then((response) => response.json())
             .then((data) => {
                 if(data?.hq?.id){
+                    setValue(-1)
                     setTitle("Sucesso na Edição!")
                     setMessage(data.message)
                     setModalShow(true)
-                    setNav("../")
                 } else if(data?.message){
                     setTitle("Erro ao Edição!")
                     setMessage(data.message)
                     setModalShow(true)
-                    setNav("")
+                    setValue(0)
                 } else {
                     console.log(data)
                 }
             })
     } 
 
-    const onHide = () => {
+    const onHide = (value) => {
         setModalShow(false)
-        navigate(nav)
+        goBack(value)
     }
 
-    function goBack() {
-        window.history.back()
+    function goBack(valor) {
+        window.history.go(valor)
     }
   
     return (
@@ -80,7 +79,7 @@ const EditHq= () => {
                     <label>Imagem: </label> <input type="text" name="imagem" defaultValue={hq.imagem}/>  <br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
-                <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />
+                <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide(value)} />
             </div>
             )
         : 
