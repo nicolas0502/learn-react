@@ -1,0 +1,93 @@
+.pag_pix{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #32BCAD;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right:auto ;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+span{
+    margin: 0;
+    padding: 0;
+}
+
+.veri{
+    width: 80px;
+    height: 80px;
+    margin: 0 25px;
+}
+
+.comeco{
+    display: flex;
+    height: 150px;
+    width: 100%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #FFF;
+}
+
+.comeco h1{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+
+.comeco h2{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+.pix_meio{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 500px;
+    width: 75%;
+}
+
+.pix_meio button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: transparent;
+    width: 250px;
+    height: 45px;
+    border-radius: 10px ;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+.pix_meio button img{
+    width: 30px;
+    height: 30px;
+}
+
+.concluir-pag{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: #FFF;
+    border: 1px solid #FFF;
+    padding: 10px;
+}
+
+.concluir-pag img{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}

@@ -64,13 +64,13 @@ const EditVend= () => {
                 <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
                 <form onSubmit={(event) => handleSubmit(event)} className="edit_hq">
                     <h1>Editar Perfil</h1>
-                    <label>Nome: </label> <input type="text" name="nome" defaultValue={userDados.nome}/> <br/>
-                    <label>Sobrenome: </label> <input type="text" name="sobrenome" defaultValue={userDados.sobrenome} /> <br/>
-                    <label>Telefone: </label> <input type="number" name="telefone" defaultValue={userDados.telefone} maxLength={11} minLength={11}/><br/>
-                    <label>CPF: </label> <input type="number" name="cpf" defaultValue={userDados.cpf} maxLength={11} minLength={11}/><br/>
-                    <label>RG: </label> <input type="number" name="rg" defaultValue={userDados.rg} maxLength={9} minLength={9}/><br/>
-                    <label>Data de Nascimento: </label> <input type="date" name="nascimento" defaultValue={userDados.nascimento}/>  <br/>
-                    <label>CEP: </label> <input type="number" name="cep" defaultValue={userDados.cep} maxLength={8} minLength={8}/><br/>
+                    <label>Nome: </label> <input type="text" name="nome" defaultValue={userDados.nome}required/> <br/>
+                    <label>Sobrenome: </label> <input type="text" name="sobrenome" defaultValue={userDados.sobrenome} required/> <br/>
+                    <label>Telefone: </label> <input type="number" name="telefone" defaultValue={userDados.telefone} maxLength={11} minLength={11} required/><br/>
+                    <label>CPF: </label> <input type="number" name="cpf" defaultValue={userDados.cpf} maxLength={11} minLength={11} required/><br/>
+                    <label>RG: </label> <input type="number" name="rg" defaultValue={userDados.rg} maxLength={9} minLength={9} required/><br/>
+                    <label>Data de Nascimento: </label> <input type="date" name="nascimento" defaultValue={userDados.nascimento} required/>  <br/>
+                    <label>CEP: </label> <input type="number" name="cep" defaultValue={userDados.cep} maxLength={8} minLength={8} required/><br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
                 <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide()} />

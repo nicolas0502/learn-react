@@ -72,11 +72,11 @@ const EditHq= () => {
                 <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
                 <form onSubmit={(event) => handleSubmit(event)} className="edit_hq">
                     <h1>Editar Produto</h1>
-                    <label>Nome: </label> <input type="text" name="nome" defaultValue={hq.nome}/> <br/>
-                    <label>Valor: </label> <input type="number" name="valor" defaultValue={hq.valor} /> <br/>
-                    <label>Quantidade: </label> <input type="number" name="quantidade" defaultValue={hq.quantidade}/><br/>
-                    <label>Descrição: </label> <textarea type="text" name="descricao" defaultValue={hq.descricao}/><br/>
-                    <label>Imagem: </label> <input type="text" name="imagem" defaultValue={hq.imagem}/>  <br/>
+                    <label>Nome: </label> <input type="text" name="nome" defaultValue={hq.nome} required/> <br/>
+                    <label>Valor: </label> <input type="number" name="valor" defaultValue={hq.valor} required/> <br/>
+                    <label>Quantidade: </label> <input type="number" name="quantidade" defaultValue={hq.quantidade} required/><br/>
+                    <label>Descrição: </label> <textarea type="text" name="descricao" defaultValue={hq.descricao} required/><br/>
+                    <label>Imagem: </label> <input type="text" name="imagem" defaultValue={hq.imagem} required/>  <br/>
                     <input type="submit" value="Editar" className="botao_edit"/>
                 </form>
                 <ModalAlerts show={modalShow} message={message} title={title} onHide={() => onHide(value)} />

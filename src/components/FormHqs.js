@@ -68,11 +68,11 @@ const FormHqs = ({hqs, setHqs}) => {
         <ArrowLeft onClick={() => {goBack()}} className="arrow_left_produto"/>
         <form onSubmit={(event) => handleSubmit(event)} className="form_hq">
             <h1>Cadastro de Produto</h1>
-            <label>Nome: </label> <input ref={nomeRef} type="text" name="nome" minLength={5}/> <br/>
-            <label>Valor: </label> <input ref={valorRef} type="number" name="valor" minLength={1}/> <br/>
-            <label>Quantidade: </label> <input ref={quantidadeRef} type="number" name="quantidade" minLength={1} /><br/>
-            <label>Descrição: </label> <textarea ref={descricaoRef} type="text" name="descricao" minLength={10}/><br/>
-            <label>Imagem: </label> <input ref={imagemRef} type="text" name="imagem" minLength={10} /> <br/>
+            <label>Nome: </label> <input ref={nomeRef} type="text" name="nome" required/> <br/>
+            <label>Valor: </label> <input ref={valorRef} type="number" name="valor" required/> <br/>
+            <label>Quantidade: </label> <input ref={quantidadeRef} type="number" name="quantidade" required/><br/>
+            <label>Descrição: </label> <textarea ref={descricaoRef} type="text" name="descricao" minLength={10} required/><br/>
+            <label>Imagem: </label> <input ref={imagemRef} type="text" name="imagem" required/> <br/>
             <input type="submit" value="Cadastrar" className="botao_cadastro"/>
         </form>
         <ModalAlerts show={modalShow} message={message} title={title} onHide={() => setModalShow(false)} />

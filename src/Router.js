@@ -18,6 +18,8 @@ import AuthProvider from './providers/AuthProvider';
 import UserProvider from './providers/UserProvider'
 import PaginaEditarUsua from "./pages/PaginaEditarUsua";
 import PaginaEditarVend from "./pages/PaginaEditarVend";
+import PaginaPagamentoPix from "./pages/PaginaPagamentoPix";
+import PaginaPagamentoBoleto from "./pages/PaginaPagamentoBoleto";
 
 const Router = () => {
 return (  
@@ -28,7 +30,11 @@ return (
           <Route path="/" element={<PaginaInicial/>} />
           <Route path="cadastra-vendedor" element={<PaginaFormVendedor/>}/>
           <Route path="produto/:hqId" element={<PaginaProduto/>}/>
-          <Route path="pagamento" element={<PaginaPagamento/>}/>
+          <Route path="pagamento">
+            <Route index element={<PaginaPagamento/>} />
+            <Route path="pix" element={<PaginaPagamentoPix/>} />
+            <Route path="boleto" element={<PaginaPagamentoBoleto/>} />
+          </Route>
           <Route path="carrinho" element={<PaginaCarrinho/>}/>
           <Route path="login-usuario-ou-vendedor" element={<PaginaPerguntaDeLogin/>}/>
           <Route path="perfil-vendedor">
